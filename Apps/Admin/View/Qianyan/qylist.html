@@ -1,0 +1,102 @@
+<extend name="Public:base"/>
+<block name="star">
+  <li>
+    <a href="{:U('Index/index')}" class="icon-home">开始</a>
+  </li>
+  <li>
+    <a href="{:U('Index/system')}" class="icon-cog">系统</a>
+  </li>
+  <li class="active">
+    <a href="{:U('Index/content')}" class="icon-file-text">内容</a>
+    <ul>
+      <li>
+        <a href="{:U('Index/qianyan')}">添加前沿</a>
+      </li>
+      <li>
+        <a href="{:U('Index/contentManager')}">内容管理</a>
+      </li>
+      <li class="active">
+        <a href="{:U('Qianyan/qylist')}">前沿列表</a>
+      </li>
+      <li>
+        <a href="#">修改前沿</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="{:U('Auth/index')}" class="icon-shopping-cart">权限</a>
+  </li>
+  <li>
+    <a href="{:U('Member/index')}" class="icon-user">会员</a>
+  </li>
+  <li>
+    <a href="{:U('File/index')}" class="icon-file">文件</a>
+  </li>
+  <li>
+    <a href="#" class="icon-th-list">栏目</a>
+  </li>
+</block>
+<block name="admin">
+  <div class="admin">
+    <div class="conatiner">
+      <div class="line">
+        <form method="post">
+          <div class="panel admin-panel">
+            <div class="panel-head"> <strong>前沿列表</strong>
+            </div>
+            <div class="padding border-bottom">
+              <input type="button" class="button button-small checkall" name="checkall" checkfor="id" value="全选" />
+            </div>
+            <!-- 权限表 -->
+            <table class="table table-hover">
+              <tr>
+                <th width="10%"></th>
+                <th width="20%">ID</th>
+                <th width="50%">title</th>
+                <th width="30%">操作</th>
+              </tr>
+              <foreach name="qianyan" item="qy">
+                <tr>
+                  <td>
+                    <input type="checkbox" name="id" value="1" />
+                  </td>
+                  <td>{$qy.id}</td>
+                  <td>{$qy.title}</td>
+                  <td>
+                    <a class="button border-blue button-little" href="{:U('Qianyan/qyeditshow',array('id'=>$qy['id']))}">修改</a>
+                    <a class="button border-yellow button-little" href="{:U('Qianyan/qydel',array('id'=>$qy['id']))}" onclick="{if(confirm('确认删除?')){return true;}return false;}">删除</a>
+                  </td>
+                </tr>
+              </foreach>
+            </table>
+          </div>
+        </form>
+      </div>
+      <input type="text" id="pages" value="{$pag}" class="hidden">
+        <div id="page1" class="margin-top" align="center"></div>
+    </div>
+  </div>
+</block>
+  <block name="admin_css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Common/laypage/skin/laypage.css">
+  </block>
+  <block name="admin_js">
+  <script src="__PUBLIC__/Common/laypage/laypage.js"></script>
+    <script type="text/javascript">
+      laypage({
+          cont: 'page1',
+          pages:$("#pages").val(), //可以叫服务端把总页数放在某一个隐藏域，再获取。假设我们获取到的是18
+          skip: true, //是否开启跳页
+          skin: '#AF0000',
+          curr: function(){ //通过url获取当前页，也可以同上（pages）方式获取
+              var page = location.search.match(/page=(\d+)/);
+              return page ? page[1] : 1;
+          }(),
+          jump: function(e, first){ //触发分页后的回调
+              if(!first){ //一定要加此判断，否则初始时会无限刷新
+                  location.href = '?page='+e.curr;
+              }
+          }
+      });
+    </script>
+  </block>

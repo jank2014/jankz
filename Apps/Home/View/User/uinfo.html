@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>usercenter</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link href="__PUBLIC__/Common/semantic/dist/semantic.min.css" rel="stylesheet">
+	<script src="__PUBLIC__/Common/js/jquery-2.1.4.min.js"></script>
+	<script src="__PUBLIC__/Common/semantic/dist/semantic.js"></script>
+	<script src="__PUBLIC__/Common/highchart/highcharts.js"></script>
+	<script src="__PUBLIC__/Common/highchart/exporting.js"></script>
+</head>
+<body>
+	<div class="ui page grid">
+		<br>
+		<br>
+		<div class="eight wide column">
+			<div class="ui raised segment">
+				<a class="ui ribbon label">Label</a>
+				<span>Inline Text</span>
+				<p></p>
+				<a class="ui teal ribbon label">Label</a>
+				<p></p>
+			</div>
+		</div>
+		<div class="eight wide column">
+			<div class="ui segment">
+				<a class="ui right ribbon label">Label</a>
+				<p></p>
+				<a class="ui teal right ribbon label">Label</a>
+				<p></p>
+			</div>
+		</div>
+
+		<!--  -->
+		<div class="ui secondary pointing menu">
+			<a class="active item"> <i class="home icon"></i>
+				Home
+			</a>
+			<a class="item"> <i class="feed icon"></i>
+				Share
+			</a>
+			<a class="item">
+				<i class="edit icon"></i>
+				Suggestion
+			</a>
+			<div class="right menu">
+				<div class="item">
+					<div class="ui transparent icon input">
+						<input placeholder="Search..." type="text">
+						<i class="search link icon"></i>
+					</div>
+				</div>
+				<a class="ui item teal" href="{:U("logout")}">Logout</a>
+			</div>
+		</div>
+
+		<div class="three wide column">
+			<h2 class="ui header">
+				<i class="home icon"></i>
+				<div class="content">个人中心</div>
+			</h2>
+		</div>
+		<div class="thirteen wide column">
+			<div class="ui success small message">
+				<i class="close icon"></i>
+				<div class="header">您已成功登陆！</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="ui celled page grid">
+
+		<div class="row">
+			<div class="three wide column">
+
+				<img src="__PUBLIC__/Home/images/uinfo/steve.jpg" alt="" class="ui medium circular image">
+				<h2 class="ui center aligned header">jank2014</h2>
+				<div class="ui divider"></div>
+				<div class="ui compact menu" id="qiandao">
+					<a class="item">
+						<i class="icon calendar"></i>
+						每日签到
+						<div class="floating ui red label" id="qdstatus">+1</div>
+					</a>
+				</div>
+				<div class="ui segment">
+					<label>积分：</label><a href="" id="score">200</a>
+				</div>
+				<div class="ui divider"></div>
+				<br>
+				<div class="ui grid">
+					<div class="ui small vertical menu">
+						<a class="active item">
+							<div class="ui small teal label">1</div>
+							Inbox
+						</a>
+						<a class="item">
+							<div class="ui small label">51</div>
+							Spam
+						</a>
+						<a class="item">
+							<div class="ui small label">1</div>
+							Updates
+						</a>
+						<a class="item">
+							<div class="ui small label">1</div>
+							Updates
+						</a>
+						<a class="item">
+							<div class="ui small label">1</div>
+							Updates
+						</a>
+
+						<div class="item">
+							<div class="ui icon input">
+								<input placeholder="Search mail..." type="text">
+								<i class="search icon"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				<br>
+				<div class="ui grid">
+					<div class="ui vertical small menu">
+						<div class="header item">Products</div>
+						<div class="item">
+							CMS Solutions
+							<div class="menu">
+								<a class="item">Rails</a>
+								<a class="item">Python</a>
+								<a class="item">PHP</a>
+							</div>
+						</div>
+						<a class="item">Hosting</a>
+						<a class="item">Enterprise</a>
+						<div class="item">Our Company</div>
+						<a class="item">About Us</a>
+						<a class="item">Jobs</a>
+						<a class="item">Locations</a>
+						<div class="item">Support</div>
+						<a class="item">FAQ</a>
+						<a class="item">E-mail Support</a>
+					</div>
+				</div>
+			</div>
+			<div class="nine wide column">
+				<h2>我们的资源</h2>
+				<div class="ui statistics">
+					<div class="statistic">
+						<div class="value">
+							18
+							<small>TB</small>
+						</div>
+						<div class="label">各种技术培训视频</div>
+					</div>
+					<div class="statistic">
+						<div class="value">
+							1.8
+							<small>TB</small>
+						</div>
+						<div class="label">优秀程序员技术资料</div>
+					</div>
+					<div class="statistic">
+						<div class="value">
+							0.2
+							<small>TB</small>
+						</div>
+						<div class="label">各大网站源码</div>
+					</div>
+				</div>
+				<h2>百度网盘</h2>
+				<a class="ui tag label">视频</a>
+				<a class="ui red tag label">文档</a>
+				<a class="ui teal tag label">源码</a>
+				<br>
+				<br>
+				<div id="container"></div>
+				<br>
+				<br>
+				<!--  -->
+				<div class="ui segment right aligned">
+					<a class="ui teal tag label big">您将享有以下福利</a>
+					<div class="ui statistics">
+						<div class="statistic">
+							<div class="value">
+								18
+								<small>TB</small>
+							</div>
+							<div class="label">各种技术培训视频</div>
+						</div>
+						<div class="statistic">
+							<div class="value">
+								1.8
+								<small>TB</small>
+							</div>
+							<div class="label">优秀程序员技术资料</div>
+						</div>
+						<div class="statistic">
+							<div class="value">
+								0.2
+								<small>TB</small>
+							</div>
+							<div class="label">各大网站源码</div>
+						</div>
+					</div>
+				</div>
+				<!-- f福利 -->
+				<div class="ui column grid">
+					<div class="column">
+						<div class="ui raised segment">
+							<a class="ui ribbon red label">基础大区1</a>
+							<span>Inline Text</span>
+							<p></p>
+							<a class="ui teal ribbon label">基础大区2</a>
+							<p></p>
+							<a class="ui purple ribbon label">基础大区3</a>
+							<p></p>
+							<a class="ui ribbon red label">基础大区1</a>
+							<span>Inline Text</span>
+							<p></p>
+							<a class="ui teal ribbon label">基础大区2</a>
+							<p></p>
+							<a class="ui purple ribbon label">基础大区3</a>
+							<p></p>
+						</div>
+					</div>
+				</div>
+				<!-- 福利 -->
+				<div class="ui segment right aligned">
+					<a class="ui teal tag label big">您将享有以下福利</a>
+					<div class="ui statistics">
+						<div class="statistic">
+							<div class="value">
+								18
+								<small>TB</small>
+							</div>
+							<div class="label">各种技术培训视频</div>
+						</div>
+						<div class="statistic">
+							<div class="value">
+								1.8
+								<small>TB</small>
+							</div>
+							<div class="label">优秀程序员技术资料</div>
+						</div>
+						<div class="statistic">
+							<div class="value">
+								0.2
+								<small>TB</small>
+							</div>
+							<div class="label">各大网站源码</div>
+						</div>
+					</div>
+				</div>
+				<div class="ui column grid">
+					<div class="column">
+						<div class="ui raised segment">
+							<a class="ui ribbon red label">基础大区1</a>
+							<span>Inline Text</span>
+							<p></p>
+							<a class="ui teal ribbon label">基础大区2</a>
+							<p></p>
+							<a class="ui purple ribbon label">基础大区3</a>
+							<p></p>
+							<a class="ui ribbon red label">基础大区1</a>
+							<span>Inline Text</span>
+							<p></p>
+							<a class="ui teal ribbon label">基础大区2</a>
+							<p></p>
+							<a class="ui purple ribbon label">基础大区3</a>
+							<p></p>
+						</div>
+					</div>
+				</div>
+				<!-- 福利 -->
+				<div class="ui segment right aligned">
+					<a class="ui teal tag label big">您将享有以下福利</a>
+					<div class="ui statistics">
+						<div class="statistic">
+							<div class="value">
+								18
+								<small>TB</small>
+							</div>
+							<div class="label">各种技术培训视频</div>
+						</div>
+						<div class="statistic">
+							<div class="value">
+								1.8
+								<small>TB</small>
+							</div>
+							<div class="label">优秀程序员技术资料</div>
+						</div>
+						<div class="statistic">
+							<div class="value">
+								0.2
+								<small>TB</small>
+							</div>
+							<div class="label">各大网站源码</div>
+						</div>
+					</div>
+				</div>
+				<div class="ui column grid">
+					<div class="column">
+						<div class="ui raised segment">
+							<a class="ui ribbon red label">基础大区1</a>
+							<span>Inline Text</span>
+							<p></p>
+							<a class="ui teal ribbon label">基础大区2</a>
+							<p></p>
+							<a class="ui purple ribbon label">基础大区3</a>
+							<p></p>
+							<a class="ui ribbon red label">基础大区1</a>
+							<span>Inline Text</span>
+							<p></p>
+							<a class="ui teal ribbon label">基础大区2</a>
+							<p></p>
+							<a class="ui purple ribbon label">基础大区3</a>
+							<p></p>
+						</div>
+					</div>
+				</div>
+				<!-- 福利 -->
+
+				<div class="ui segment right aligned">
+					<a class="ui teal tag label">如果您觉得我们不错请给出评价，这将是我们成长的动力</a>
+					<br>
+					<div class="ui divider"></div>
+					<div class="ui form">
+						<div class="field">
+							<div class="ui heart rating" id="comment" data-rating="6"></div>
+							<small>红心代表您对我们的喜欢喜欢程度</small>
+							<textarea></textarea>
+						</div>
+						<div class="ui submit teal button">评价</div>
+					</div>
+				</div>
+			</div>
+			<div class="four wide column">
+				<div class="ui card">
+					<div class="image">
+						<img src="__PUBLIC__/Home/images/uinfo/elliot.jpg"></div>
+					<div class="content">
+						<a class="header">Stevie Feliciano</a>
+						<div class="meta">
+							<span class="date">Joined in 2014</span>
+						</div>
+						<div class="description">
+							Stevie Feliciano is a library scientist living in New York City.
+						</div>
+					</div>
+					<div class="extra content">
+						<a>
+							<i class="user icon"></i>
+							22 Friends
+						</a>
+					</div>
+				</div>
+				<div class="ui negative small message">
+					<i class="close icon"></i>
+					<div class="header">您的信息不够完善</div>
+					<p>请尽快完善信息</p>
+				</div>
+				<div class="ui indicating red small progress">
+					<div class="bar"></div>
+					<div class="label">信息完善度20%</div>
+				</div>
+				<button class="ui button red right" id="btn1">完善信息</button>
+				<br>
+				<br>
+				<div class="ui black empty circular label"></div>
+				<div class="ui black empty circular label"></div>
+				<div class="ui green empty circular label"></div>
+				<div class="ui green empty circular label"></div>
+				<div class="ui red empty circular label"></div>
+				<div class="ui red empty circular label"></div>
+				<div class="ui blue empty circular label"></div>
+				<div class="ui blue empty circular label"></div>
+				<div class="ui purple empty circular label"></div>
+				<div class="ui purple empty circular label"></div>
+				<div class="ui teal empty circular label"></div>
+				<div class="ui teal empty circular label"></div>
+				<br>
+				<br>
+				<a class="ui teal tag label">我的动态</a>
+				<br>
+				<br>
+				<div class="ui small feed">
+					<div class="event">
+						<div class="label">
+							<img src="__PUBLIC__/Home/images/uinfo/elliot.jpg"></div>
+						<div class="content">
+							<div class="summary">
+								<a class="user">Elliot Fu</a>
+								added you as a friend
+								<div class="date">1 Hour Ago</div>
+							</div>
+							<div class="meta">
+								<a class="like">
+									<i class="like icon"></i>
+									4 Likes
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="event">
+						<div class="label">
+							<i class="pencil icon"></i>
+						</div>
+						<div class="content">
+							<div class="summary">
+								You submitted a new post to the page
+								<div class="date">3 days ago</div>
+							</div>
+							<div class="extra text">
+								I'm having a BBQ this weekend. Come by around 4pm if you can.
+							</div>
+							<div class="meta">
+								<a class="like">
+									<i class="like icon"></i>
+									11 Likes
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="event">
+						<div class="label">
+							<img src="__PUBLIC__/Home/images/uinfo/steve.jpg"></div>
+						<div class="content">
+							<div class="date">4 days ago</div>
+							<div class="summary">
+								<a>Helen Troy</a>
+								added
+								<a>2 new illustrations</a>
+							</div>
+							<div class="extra images">
+								<a>
+									<img src="__PUBLIC__/Home/images/uinfo/steve.jpg"></a>
+								<a>
+									<img src="__PUBLIC__/Home/images/uinfo/steve.jpg"></a>
+							</div>
+							<div class="meta">
+								<a class="like">
+									<i class="like icon"></i>
+									1 Like
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="event">
+						<div class="label">
+							<img src="__PUBLIC__/Home/images/uinfo/jenny.jpg"></div>
+						<div class="content">
+							<div class="summary">
+								<a class="user">Jenny Hess</a>
+								added you as a friend
+								<div class="date">2 Days Ago</div>
+							</div>
+							<div class="meta">
+								<a class="like">
+									<i class="like icon"></i>
+									8 Likes
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="event">
+						<div class="label">
+							<img src="__PUBLIC__/Home/images/uinfo/stevie1.jpg"></div>
+						<div class="content">
+							<div class="summary">
+								<a>Joe Henderson</a>
+								posted on his page
+								<div class="date">3 days ago</div>
+							</div>
+							<div class="extra text">
+								Ours is a life of constant reruns. We're always circling back to where we'd we started, then starting all over again.
+							</div>
+							<div class="meta">
+								<a class="like">
+									<i class="like icon"></i>
+									5 Likes
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="event">
+						<div class="label">
+							<img src="__PUBLIC__/Home/images/uinfo/jenny.jpg"></div>
+						<div class="content">
+							<div class="date">4 days ago</div>
+							<div class="summary">
+								<a>Justen Kitsune</a>
+								added
+								<a>2 new photos</a>
+								of you
+							</div>
+							<div class="extra images">
+								<a>
+									<img src="__PUBLIC__/Home/images/uinfo/steve.jpg"></a>
+								<a>
+									<img src="__PUBLIC__/Home/images/uinfo/steve.jpg"></a>
+							</div>
+							<div class="meta">
+								<a class="like">
+									<i class="like icon"></i>
+									41 Likes
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ui info modal">
+			<i class="close icon"></i>
+			<div class="header">完善我的信息</div>
+			<div class="content">
+				<div class="ui grid">
+					<div class="six wide column">
+						<div class="ui card">
+							<div class="image">
+								<img src="__PUBLIC__/Home/images/uinfo/elliot.jpg"></div>
+							<div class="content">
+								<a class="header">Stevie Feliciano</a>
+								<div class="meta">
+									<span class="date">Joined in 2014</span>
+								</div>
+								<div class="description">
+									Stevie Feliciano is a library scientist living in New York City. She likes to spend her time reading, running, and writing.
+								</div>
+							</div>
+							<div class="extra content">
+								<a>
+									<i class="user icon"></i>
+									22 Friends
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="ten wide column">
+						<form class="ui form">
+							<h4 class="ui dividing header">Personal Information</h4>
+							<div class="two fields">
+								<div class="field">
+									<label>Name</label>
+									<div class="two fields">
+										<div class="field">
+											<input name="first-name" placeholder="First Name" type="text"></div>
+										<div class="field">
+											<input name="last-name" placeholder="Last Name" type="text"></div>
+									</div>
+								</div>
+								<div class="field">
+									<label>Gender</label>
+									<div class="ui selection dropdown">
+										<input name="gender" type="hidden">
+										<div class="default text">Gender</div>
+										<i class="dropdown icon"></i>
+										<div class="menu">
+											<div class="item" data-value="male">Male</div>
+											<div class="item" data-value="female">Female</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="two fields">
+								<div class="field">
+									<label>State</label>
+									<select class="ui search dropdown">
+										<option value="">State</option>
+										<option value="AL">Alabama</option>
+										<option value="AL">Alabama</option>
+										<option value="AK">Alaska</option>
+										<option value="AZ">Arizona</option>
+										<option value="AR">Arkansas</option>
+									</select>
+								</div>
+								<div class="field"></div>
+							</div>
+							<div class="field">
+								<label>Biography</label>
+								<textarea></textarea>
+							</div>
+							<div class="ui error message">
+								<div class="header">We noticed some issues</div>
+							</div>
+							<div class="ui submit button">Register</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!--  -->
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#qdstatus").hide();
+		$("#qiandao").click(function(){
+			$("#qdstatus").show();
+		});
+	});
+
+	</script>
+	<script>
+	$("#comment")
+  .rating({
+    initialRating: 6,
+    maxRating: 10
+  });
+</script>
+	<script type="text/javascript">
+	$("#btn1").click(function(){
+		$('.ui.info.modal')
+		  .modal('show')
+		;
+	});
+</script>
+	<script type="text/javascript"></script>
+	<script type="text/javascript">
+	$(function () {
+    var colors = Highcharts.getOptions().colors,
+        categories = ['资源总量', '我可分享', '新增', '删除', '我的贡献'],
+        name = 'Jank 资源分享',
+        data = [{
+                y: 20000,
+                color: colors[0],
+                drilldown: {
+                    name: '全部资源',
+                    categories: ['视频', '文档', '图片', '书籍'],
+                    data: [10000, 2000, 5000, 3000],
+                    color: colors[0]
+                }
+            }, {
+                y: 10000,
+                color: colors[1],
+                drilldown: {
+                    name: '我可分享',
+                   categories: ['视频', '文档', '图片', '书籍'],
+                    data: [8000, 1000, 600, 400],
+                    color: colors[1]
+                }
+            }, {
+                y: 8000,
+                color: colors[2],
+                drilldown: {
+                    name: '新增',
+                   categories: ['视频', '文档', '图片', '书籍'],
+                    data: [ 3800, 1600, 1400, 1200],
+                    color: colors[2]
+                }
+            }, {
+                y: 4000,
+                color: colors[3],
+                drilldown: {
+                    name: '删除',
+                    categories: ['视频', '文档', '图片', '书籍'],
+                    data: [ 2800, 600, 400, 200],
+                    color: colors[3]
+                }
+            }, {
+                y: 4000,
+                color: colors[4],
+                drilldown: {
+                    name: '我的贡献',
+                    categories: ['视频', '文档', '图片', '书籍'],
+                    data: [ 2800, 600, 400, 200],
+                    color: colors[4]
+                }
+            }];
+
+    function setChart(name, categories, data, color) {
+	chart.xAxis[0].setCategories(categories, false);
+	chart.series[0].remove(false);
+	chart.addSeries({
+		name: name,
+		data: data,
+		color: color || 'white'
+	}, false);
+	chart.redraw();
+    }
+
+    var chart = $('#container').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'JANKZ分享资源, 2015'
+        },
+        subtitle: {
+            text: '点击查看资源详细. 再次点击返回.'
+        },
+        xAxis: {
+            categories: categories
+        },
+        yAxis: {
+            title: {
+                text: '资源数量/GB'
+            }
+        },
+        plotOptions: {
+            column: {
+                cursor: 'pointer',
+                point: {
+                    events: {
+                        click: function() {
+                            var drilldown = this.drilldown;
+                            if (drilldown) { // drill down
+                                setChart(drilldown.name, drilldown.categories, drilldown.data, drilldown.color);
+                            } else { // restore
+                                setChart(name, categories, data);
+                            }
+                        }
+                    }
+                },
+                dataLabels: {
+                    enabled: true,
+                    color: colors[1],
+                    style: {
+                        fontWeight: 'bold'
+                    },
+                    formatter: function() {
+                        return this.y +' GB';
+                    }
+                }
+            }
+        },
+        tooltip: {
+            formatter: function() {
+                var point = this.point,
+                    s = this.x +':<b>'+ this.y +'GB jankz share</b><br/>';
+                if (point.drilldown) {
+                    s += '点击查看 '+ point.category +' 资源';
+                } else {
+                    s += '点击数据返回jank share';
+                }
+                return s;
+            }
+        },
+        series: [{
+            name: name,
+            data: data,
+            color: 'white'
+        }],
+        exporting: {
+            enabled: false
+        }
+    })
+    .highcharts(); // return chart
+});
+</script>
+</body>
+</html>

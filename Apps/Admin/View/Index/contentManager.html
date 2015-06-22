@@ -1,0 +1,255 @@
+<extend name="Public:base"/>
+<block name="star">
+	<li>
+		<a href="{:U('Index/index')}" class="icon-home">开始</a>
+	</li>
+	<li>
+		<a href="{:U('Index/system')}" class="icon-cog">系统</a>
+	</li>
+	<li class="active">
+		<a href="{:U('Index/content')}" class="icon-file-text">内容</a>
+		<ul>
+			<li>
+				<a href="{:U('Index/qianyan')}">添加前沿</a>
+			</li>
+			<li class="active">
+				<a href="{:U('Index/contentManager')}">内容管理</a>
+			</li>
+			<li>
+				<a href="{:U('Qianyan/qylist')}">前沿列表</a>
+			</li>
+			<li>
+				<a href="#">链接管理</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="{:U('Auth/index')}" class="icon-shopping-cart">权限</a>
+	</li>
+	<li>
+		<a href="{:U('Member/index')}" class="icon-user">会员</a>
+	</li>
+	<li>
+		<a href="{:U('File/index')}" class="icon-file">文件</a>
+	</li>
+	<li>
+		<a href="#" class="icon-th-list">栏目</a>
+	</li>
+</block>
+<block name="admin">
+	<div class="admin">
+		<div class="panel admin-panel">
+			<div class="panel-head"> <strong>内容管理</strong>
+			</div>
+			<div class="tab">
+				<div class="tab-head"> <strong>内容添加</strong>
+					<ul class="tab-nav">
+						<li class="active">
+							<a href="#tab-fream">添加框架</a>
+						</li>
+						<li>
+							<a href="#tab-zuopin">添加作品</a>
+						</li>
+						<li>
+							<a href="#tab-qianyan">添加前沿</a>
+						</li>
+						<li>
+							<a href="#tab-link">添加链接</a>
+						</li>
+					</ul>
+				</div>
+				<!-- tab-body开始 -->
+				<div class="tab-body padding-big">
+					<br />
+					<div class="tab-panel active" id="tab-fream">
+						<div class="line-big padding">
+							<form action="{:U('Index/addFream')}" method="post" enctype="multipart/form-data" class="padding-big">
+								<div class="xm5 border border-gray">
+									<h4 class="padding-bottom border-bottom border-main">填写添加框架信息</h4>
+									<div class="form-group">
+										<div class="label">
+											<label for="upfile">照片/头像</label>
+										</div>
+										<div class="field">
+											<a class="button input-file" href="javascript:void(0);">
+												+ 请选择上传文件
+												<input size="100" data-validate="required:请选择文件,img:只能上传jpg|gif|png|ico格式文件" type="file" name="photo"></a>
+										</div>
+										<div class="form-group">
+											<div class="label">
+												<label for="name">框架名称</label>
+											</div>
+											<div class="flied">
+												<input type="text" name="name" class="input"></div>
+										</div>
+										<div class="form-group">
+											<div class="label">
+												<label for="link">链接地址</label>
+											</div>
+											<div class="field">
+												<input type="text" name="link" class="input"></div>
+										</div>
+										<div class="form-group">
+											<div class="label">
+												<label for="type">框架类别</label>
+											</div>
+											<div class="field">
+												<div class="button-group radio">
+													<label class="button">
+														<input name="type" value="1"  type="radio">前台</label>
+													<label class="button">
+														<input name="type" value="2"  type="radio">后台</label>
+													<label class="button">
+														<input name="type" value="3"  type="radio">其他</label>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="label">
+												<label for="status">开启状态</label>
+											</div>
+											<div class="field">
+												<div class="button-group radio">
+													<label class="button">
+														<input name="status" value="1"  type="radio">开启</label>
+													<label class="button">
+														<input name="status" value="0"  type="radio">关闭</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<button type="submit" class="button bg-main margin-big">添加</button>
+									<button type="reset" class="button bg-main margin-big">重置</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="tab-panel" id="tab-zuopin">
+						<div class="line-big padding">
+							<form action="{:U('Index/addzuopin')}" method="post" enctype="multipart/form-data" class="padding-big">
+								<div class="xm5 border border-gray">
+									<h4 class="padding-bottom border-bottom border-main">填写添加框架信息</h4>
+									<div class="form-group">
+										<div class="label">
+											<label for="upfile">作品图片</label>
+										</div>
+										<div class="field">
+											<a class="button input-file" href="javascript:void(0);">
+												+ 请选择上传文件
+												<input size="100" data-validate="required:请选择文件,img:只能上传jpg|gif|png|ico格式文件" type="file" name="photo"></a>
+										</div>
+										<div class="form-group">
+											<div class="label">
+												<label for="zuopin-name">作品名称</label>
+											</div>
+											<div class="flied">
+												<input type="text" name="zuopin-name" class="input"></div>
+										</div>
+										<div class="form-group">
+											<div class="label">
+												<label for="zuopin-link">链接地址</label>
+											</div>
+											<div class="field">
+												<input type="text" name="zuopin-link" class="input"></div>
+										</div>
+										<div class="form-group">
+											<div class="label">
+												<label for="type">作品类别</label>
+											</div>
+											<div class="field">
+												<div class="button-group radio">
+													<label class="button">
+														<input name="type" value="1"  type="radio">前台</label>
+													<label class="button">
+														<input name="type" value="2"  type="radio">后台</label>
+													<label class="button">
+														<input name="type" value="3"  type="radio">其他</label>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="label">
+												<label for="status">开启状态</label>
+											</div>
+											<div class="field">
+												<div class="button-group radio">
+													<label class="button">
+														<input name="status" value="1"  type="radio">开启</label>
+													<label class="button">
+														<input name="status" value="0"  type="radio">关闭</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<button type="submit" class="button bg-main margin-big">添加</button>
+									<button type="reset" class="button bg-main margin-big">重置</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="tab-panel" id="tab-qianyan">
+						<div class="line-big padding">
+							<form action="{:U('Index/addqianyan')}" method="post" enctype="multipart/form-data" class="padding-big">
+								<div class="xm5 border border-gray">
+									<h4 class="padding-bottom border-bottom border-main">填写前沿信息</h4>
+									<div class="form-group">
+										<div class="label">
+											<label for="upfile">照片/头像</label>
+										</div>
+										<div class="field">
+											<a class="button input-file" href="javascript:void(0);">
+												+ 请选择上传文件
+												<input size="100" data-validate="required:请选择文件,img:只能上传jpg|gif|png|ico格式文件" type="file" name="photo"></a>
+										</div>
+										<div class="form-group">
+											<div class="label">
+												<label for="qianyan-name">作品名称</label>
+											</div>
+											<div class="flied">
+												<input type="text" name="qianyan-name" class="input"></div>
+										</div>
+										<div class="form-group">
+											<div class="label">
+												<label for="qianyan-link">链接地址</label>
+											</div>
+											<div class="field">
+												<input type="text" name="qianyan-link" class="input"></div>
+										</div>
+										<div class="form-group">
+											<div class="label">
+												<label for="">选择类型</label>
+											</div>
+											<div class="field">
+												<div class="button-group radio">
+													<input id="type" type="radio" name="qianyan-type" value="1">
+													前端
+													<input id="type" type="radio" name="qianyan-type" value="2">
+													后台
+													<input id="type" type="radio" name="qianyan-type" value="3">其他</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="label">
+												<label for="">开启状态</label>
+											</div>
+											<div class="field">
+												<div class="button-group radio">
+													<input id="type" type="radio" name="qianyan-status" value="1">
+													开启
+													<input id="type" type="radio" name="qianyan-status" value="0">关闭</div>
+											</div>
+										</div>
+									</div>
+									<button type="submit" class="button bg-main margin-big">添加</button>
+									<button type="reset" class="button bg-main margin-big">重置</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- tab-body结束 -->
+			</div>
+		</div>
+	</div>
+</block>

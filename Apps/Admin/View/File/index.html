@@ -1,0 +1,117 @@
+<extend name="Public:base"/>
+<block name="star">
+    <li>
+        <a href="{:U('Index/index')}" class="icon-home">开始</a>
+    </li>
+    <li>
+        <a href="{:U('Index/system')}" class="icon-cog">系统</a>
+    </li>
+    <li>
+        <a href="{:U('Index/content')}" class="icon-file-text">内容</a>
+    </li>
+    <li>
+        <a href="{:U('Auth/index')}" class="icon-shopping-cart">权限</a>
+    </li>
+    <li>
+        <a href="{:U('Member/index')}" class="icon-user">会员</a>
+    </li>
+    <li class="active">
+        <a href="{:U('File/index')}" class="icon-file">文件</a>
+        <ul>
+            <li>
+                <a href="{:U('index')}">图片</a>
+            </li>
+            <li class="active">
+                <a href="{:U('file')}">文件</a>
+            </li>
+            <li>
+                <a href="{:U('text')}">文档</a>
+            </li>
+            <li>
+                <a href="{:U('attchement')}">附件</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="#" class="icon-th-list">栏目</a>
+    </li>
+</block>
+<block name="admin">
+
+    <div class="admin">
+
+        <div class="tab">
+            <div class="tab-head"> <strong>图片中心</strong>
+                <ul class="tab-nav">
+                    <li class="active">
+                        <a href="#tab-pic-list">图片库</a>
+                    </li>
+                    <li>
+                        <a href="#tab-pic-upload">图片上传</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-body">
+                <br />
+                <div class="tab-panel active" id="tab-pic-list">
+                    <div class="container-layout padding-big maigin-big">
+                        <h4 class="padding-bottom border-bottom">框架图片</h4>
+                        <div class="line-big list border">
+                            <foreach name="images" item="con">
+                                <div class="xb2">
+                                    <div class="media border padding bg-gray">
+                                        <img src="{$con.image}" alt="" class="img-responsive"></div>
+                                    <div class="text-right text-small margin">
+                                        <input class="button button-little bg-main dialogs" data-toggle="click" data-target="#mydialog" data-mask="1" data-width="50%">查看</div>
+                                </div>
+
+                            </foreach>
+                        </div>
+                    </div>
+
+                    <div class="container-layout padding-big maigin-big">
+                        <h4 class="padding-bottom border-bottom">图库图片</h4>
+                        <div class="line-big list border">
+                            <foreach name="file" item="pic">
+                                <div class="xb2">
+                                    <div class="media border padding bg-gray">
+                                        <a href=""></a>
+                                        <img src="{$pic.src}" alt="" class="img-responsive"></div>
+                                </div>
+                            </foreach>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-panel" id="tab-pic-upload">
+                    <div class="container">
+                        <form action="{:U('imageAdd')}" enctype="multipart/form-data" method="post">
+                            <div class="form-group" id="1432800593673">
+                                <div class="label">
+                                    <label for="upfile">图片/头像</label>
+                                </div>
+                                <div class="field">
+                                    <a class="button input-file" href="javascript:void(0);">
+                                        + 请选择上传文件
+                                        <input size="100" data-validate="required:请选择文件,img:只能上传jpg|gif|png|ico格式文件" type="file" name="picture"></a>
+                                    <input type="text" name="test" placeholder="" class="hidden" value="1"></div>
+                            </div>
+                            <button type="submit" class="button bg-main">立即上传</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mydialog">
+            <div class="dialog">
+                <div class="dialog-head">
+                    <span class="close rotate-hover"></span> <strong>对话框标题</strong>
+                </div>
+                <div class="dialog-body">对话框内容</div>
+                <div class="dialog-foot">
+                    <button class="button dialog-close">取消</button>
+                    <button class="button bg-green">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

@@ -1,0 +1,72 @@
+<block name="top">
+  <include file="Public:top" />
+</block>
+<div class="demo-nav padding-big-top padding-big-bottom fixed" id="nav">
+  <div class="container padding-top padding-bottom">
+    <div class="line">
+      <div class="xl12 xs3 xm3 xb2">
+        <button class="button icon-navicon float-right" data-target="#header-demo"></button>
+        <a target="_blank" href="{:U('Index/index')}">
+          <div class="xl4 xs12 xm12">
+            <img src="__PUBLIC__/Home/images/logo.png" alt=""  class="img-responsive" />
+          </div>
+        </a>
+      </div>
+      <div class=" xl12 xs9 xm9 xb10 nav-navicon" id="header-demo">
+
+        <div class="xs8 xm6 xb6 padding-small">
+          <ul class="nav nav-menu nav-inline nav-pills nav-big">
+            <li>
+              <a href="{:U('Home/Index/index')}">首页</a>
+            </li>
+            <li>
+              <a href="{:U('Home/Index/fream')}">框架</a>
+            </li>
+            <li>
+              <a href="{:U('Home/Index/zuopin')}">作品</a>
+            </li>
+            <li>
+              <a href="{:U('Home/Index/qianyan')}">前沿</a>
+            </li>
+            <li>
+              <a href="{:U('Home/Index/more')}">
+                更多
+                <span class="arrow"></span>
+              </a>
+              <ul class="dropdown">
+                <li>
+                  <a href="{:U('Home/Index/about')}">关于我们</a>
+                </li>
+                <li>
+                  <a href="{:U('Home/Index/test')}">吉贞公益</a>
+                </li>
+                <li>
+                  <a href="http://jankz.com/more/lightsays">吉贞轻说</a>
+                </li>
+                <li>
+                  <a href="">吉贞论坛</a>
+                </li>
+                <li>
+                  <a href="http://jankzshare.sinaapp.com">微信平台</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="xs4 xm3 xb4">
+          <form>
+            <div class="input-group padding-little-top">
+              <input type="text" class="input border-gray" name="keywords" size="30" placeholder="关键词" />
+              <span class="addbtn">
+                <button type="button" class="button bg-gray icon-search"></button>
+              </span>
+            </div>
+          </form>
+        </div>
+        <div class="hidden-l hidden-s xm3 xb2">
+          <div class="text-gray text-big icon-qq height-large text-right">QQ 979890264</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

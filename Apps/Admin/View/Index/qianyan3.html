@@ -1,0 +1,62 @@
+<extend name="Public:base"/>
+<block name="admin_css">
+</block>
+<block name="admin_js">
+<script src="__PUBLIC__/Common/ueditor/ueditor.config.js"></script>
+<script src="__PUBLIC__/Common/ueditor/ueditor.min.js"></script>
+<script>
+	var URL = window.UEDITOR_HOME_URL='__PUBLIC__/Common/ueditor/';
+	window.onload=function(){
+		window.UEDITOR_CONFIG.initialFrameWidth:1000  //初始化编辑器宽度,默认1000
+        window.UEDITOR_CONFIG.initialFrameHeight:600  //初始化编辑器高度,默认320
+        UE.getEditor('content');
+	}
+</script>
+</block>
+<block name="star">
+	<li>
+		<a href="{:U('Index/index')}" class="icon-home">开始</a>
+	</li>
+	<li>
+		<a href="{:U('Index/system')}" class="icon-cog">系统</a>
+	</li>
+	<li class="active">
+		<a href="{:U('Index/content')}" class="icon-file-text">内容</a>
+		<ul>
+			<li class="active">
+				<a href="{:U('Index/qianyan')}">添加前沿</a>
+			</li>
+			<li>
+				<a href="{:U('Index/contentManager')}">内容管理</a>
+			</li>
+			<li>
+				<a href="#">分类设置</a>
+			</li>
+			<li>
+				<a href="#">链接管理</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="{:U('Auth/index')}" class="icon-shopping-cart">权限</a>
+	</li>
+	<li>
+		<a href="{:U('Member/index')}" class="icon-user">会员</a>
+	</li>
+	<li>
+		<a href="{:U('File/index')}" class="icon-file">文件</a>
+	</li>
+	<li>
+		<a href="#" class="icon-th-list">栏目</a>
+	</li>
+</block>
+<block name="admin">
+	<div class="admin">
+		<div class="conatiner">
+			<div class="line">
+
+					<textarea name="content" id="content"></textarea>
+			</div>
+		</div>
+	</div>
+</block>

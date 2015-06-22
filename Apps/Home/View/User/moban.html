@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>jankz</title>
+    <link rel="stylesheet" href="__PUBLIC__/Common/pintuer/pintuer.css">
+    <script src="__PUBLIC__/Common/pintuer/jquery.js"></script>
+    <script src="__PUBLIC__/Common/pintuer/pintuer.js"></script>
+    <script src="__PUBLIC__/Common/pintuer/respond.js"></script>
+    <link type="image/x-icon" href="__PUBLIC__/Home/images/favicon.ico" rel="shortcut icon" />
+    <link href="__PUBLIC__/Home/images/favicon.ico" rel="bookmark icon" />
+    <style>
+		.demo-nav.fixed.fixed-top{z-index:8;background:#fff;width:100%;padding:0;border-bottom:solid 3px #0a8;-webkit-box-shadow:0 3px 6px rgba(0, 0, 0, .175);box-shadow:0 3px 6px rgba(0, 0, 0, .175);}
+
+    </style>
+</head>
+
+<body>
+  	<!--顶部-->
+    <div class="layout bg-black bg-inverse">
+      <div class="container height-large">
+        <span class="float-right">
+          <a class="button button-little bg-main" href="{:U('Home/User/login')}">登陆</a> | <a class="button button-little bg-main" href="{:U('Home/User/register')}">注册</a>
+        </span>
+        欢迎加入jank<a href="{:U('Home/User/register')}">网络平台</a>
+      </div>
+    </div>
+
+	<!--导航-->
+    <div class="demo-nav padding-big-top padding-big-bottom fixed">
+    <div class="container padding-top padding-bottom">
+      <div class="line">
+        <div class="xl12 xs3 xm3 xb2"><button class="button icon-navicon float-right" data-target="#header-demo"></button><a target="_blank" href="{:U('Index/index')}"><img src="__PUBLIC__/Home/images/logo.png" alt="" /></a></div>
+        <div class=" xl12 xs9 xm9 xb10 nav-navicon" id="header-demo">
+
+          <div class="xs8 xm6 xb6 padding-small">
+            <ul class="nav nav-menu nav-inline nav-pills nav-big">
+              <li><a href="{:U('index')}">首页</a></li>
+              <li><a href="{:U('fream')}">框架</a></li>
+              <li><a href="{:U('zuopin')}">作品</a></li>
+              <li><a href="{:U('qianyan')}">前沿</a></li>
+              <li><a href="{:U('more')}">更多<span class="arrow"></span></a>
+                  <ul class="dropdown">
+                    <li><a href="{:U('about')}">关于我们</a></li>
+                    <li><a href="">吉贞公益</a></li>
+                    <li><a href="">吉贞轻说</a></li>
+                    <li><a href="">吉贞论坛</a></li>
+                  </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="xs4 xm3 xb4">
+            <form>
+              <div class="input-group padding-little-top">
+                <input type="text" class="input border-main" name="keywords" size="30" placeholder="关键词" />
+                <span class="addbtn"><button type="button" class="button bg-main icon-search"></button></span>
+              </div>
+            </form>
+          </div>
+          <div class="hidden-l hidden-s xm3 xb2">
+            <div class="text-red text-big icon-phone height-large text-right"> QQ 979890264</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+ <!--底部-->
+    <br /><br />
+    <div class="container-layout bg-gray bg-inverse padding-big-top padding-big-bottom"> 
+      <div class="container">
+       <div class="table-responsive padding hidden-l">
+          <ul class="nav nav-sitemap">
+            <li><a href="#">吉贞公益</a>
+              <ul>
+                <li><a href="#">新闻公告</a></li>
+                <li><a href="#">公益资讯</a></li>
+                <li><a href="#">公益报道</a></li>
+              </ul>
+            </li>
+            <li><a href="#">吉贞系列</a>
+              <ul>
+                <li><a href="#">吉贞文学</a></li>
+                <li><a href="#">产品音乐</a></li>
+                <li><a href="#">产品轻说</a></li>
+              </ul>
+            </li>
+            <li><a href="#">吉贞论坛</a>
+              <ul>
+                <li><a href="#">科技前沿</a></li>
+                <li><a href="#">技术交流</a></li>
+                <li><a href="#">酷炫时尚</a></li>
+              </ul>
+            </li>
+            <li><a href="#">留言反馈</a></li>
+            <li><a href="#">联系方式</a></li>
+          </ul>
+        </div>
+        <div class="text-center">版权所有 © jankz.com All Rights Reserved，图ICP备：380959609</div>
+      </div>
+    </div>
+</body>
+</html>

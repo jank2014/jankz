@@ -1,0 +1,72 @@
+<extend name="Public:base"/>
+<block name="nav">
+  <include file="Public:nav" />
+</block>
+<block name="fream">
+  <!-- 内容 -->
+  <div class="container">
+    <div class="line-middle list">
+      <h3 class="padding icon-caret-right text-red"> 前端精选</h3>
+      <!-- 前端框架循环开始 -->
+      <foreach name="content1" item="qd">
+        <div class="xl12 xs6 xm3 xb3 margin-bottom">
+          <div class="media">
+            <a class="img clearfix" href="{$qd.link}" target="_blank">
+              <img src="{$qd.image}" class="img-responsive padding-small bg border radius-big" alt="" />
+            </a>
+            <div class="media-body padding-top border-bottom border-dotted"> <strong class="text-center">{$qd.name}</strong>
+              <a href="{$qd.link}" target="_blank" class="button button-little bg-main margin-small">访问</a>
+            </div>
+          </div>
+        </div>
+      </foreach>
+      <!-- 循环结束 -->
+      <br />
+      <p class="text-right"><a href="{:U('fream/qianduan')}">更多</a></p>
+    </div>
+  </div>
+  <!-- 后端框架 -->
+  <div class="container">
+    <div class="line-middle list">
+      <h3 class="padding-bottom border-bottom margin-bottom padding icon-caret-right"> PHP框架</h3>
+      <!-- 后端框架循环开始 -->
+      <foreach name="content2" item="hd">
+        <div class="xl12 xs6 xm3 xb3 margin-bottom">
+          <div class="media border">
+            <a class="img clearfix" href="{$hd.link}" target="_blank">
+              <img src="{$hd.image}" class="img-responsive padding-small border bg-white" alt="" />
+            </a>
+            <div class="media-body padding-top border-bottom"> <strong class="text-center">{$hd.name}</strong>
+              <a href="{$hd.link}" target="_blank" class="button button-little bg-main margin-small">访问</a>
+            </div>
+          </div>
+        </div>
+      </foreach>
+      <!-- 循环结束 -->
+      <br />
+       <p class="text-right"><a href="{:U('fream/php')}">更多</a></p>
+    </div>
+  </div>
+  <!-- 其他 -->
+  <div class="container">
+    <div class="line-middle list">
+      <h3 class="padding-bottom border-bottom margin-bottom padding icon-caret-right"> 其他精选</h3>
+      <!-- 其他循环开始 -->
+      <foreach name="content3" item="qt">
+        <div class="xl12 xs6 xm3 xb3 margin-bottom">
+          <div class="media">
+            <a class="img clearfix" href="{$qt.link}" target="_blank">
+              <img src="{$qt.image}" class="img-responsive padding-small bg border radius-big" alt="" />
+            </a>
+            <div class="media-body padding-top border-bottom">
+              <strong class="text-center">{$qt.name}</strong>
+              <a href="{$qt.link}" target="_blank" class="button button-little bg-main margin-small">访问</a>
+            </div>
+          </div>
+        </div>
+      </foreach>
+            <br />
+       <p class="text-right"><a href="{:U('fream/other')}">更多</a></p>
+      <!-- 循环结束 --> </div>
+  </div>
+</block>

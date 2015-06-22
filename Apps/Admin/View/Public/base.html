@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title>吉贞网络平台-后台管理</title>
+    <link rel="stylesheet" href="__PUBLIC__/Common/pintuer/pintuer.css">
+    <link rel="stylesheet" href="__PUBLIC__/Admin/css/admin.css">
+    <block name="admin_css"></block>
+    <script src="__PUBLIC__/Common/pintuer/jquery.js"></script>
+    <script src="__PUBLIC__/Common/pintuer/pintuer.js"></script>
+    <script src="__PUBLIC__/Common/pintuer/respond.js"></script>
+    <script src="__PUBLIC__/Common/Admin/js/admin.js"></script>
+    <link type="__PUBLIC__/Admin/__PUBLIC__/Admin/images/x-icon" href="http://www.jankz.com/favicon.ico" rel="shortcut icon" />
+    <link href="http://www.jankz.com/favicon.ico" rel="bookmark icon" />
+</head>
+
+<body>
+    <div class="lefter">
+        <div class="logo">
+            <a href="http://www.jankz.com" target="_blank">
+                <img src="__PUBLIC__/Admin/images/logo.png" alt="后台管理系统" />
+            </a>
+        </div>
+    </div>
+    <div class="righter nav-navicon" id="admin-nav">
+        <div class="mainer">
+            <div class="admin-navbar">
+                <span class="float-right">
+                    <a class="button button-little bg-main" href="{:U('Home/Index/index')}" target="_blank">前台首页</a>
+                    <a class="button button-little bg-yellow" href="{:U('Manager/logout')}">注销登录</a>
+                </span>
+                <ul class="nav nav-inline admin-nav">
+                    <block name="star"></block>
+                </ul>
+            </div>
+            <div class="admin-bread">
+                <span>您好，admin，欢迎您的光临。</span>
+                <ul class="bread">
+                    <li>
+                        <a href="{:U('Index/index')}" class="icon-home">开始</a>
+                    </li>
+                    <li>后台首页</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <block name="admin"></block>
+  <block name="admin_js"></block>
+</body>
+</html>

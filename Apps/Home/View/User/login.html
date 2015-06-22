@@ -1,0 +1,101 @@
+ <extend name="Public:base"/>
+ <block name="nav">
+   <include file="Public:nav"/>
+ </block>
+  <block name="login">
+     <!-- 登陆 -->
+  <div class="container">
+    <div class="line">
+      <div class="space xs4 xs2-move">
+        <h2 class="padding-bottom border-bottom icon-cog">用户登录</h2>
+        <br />
+        <div id="notes"></div>
+        <br />
+        <form action="{:U('Home/User/login')}" method="post">
+          <div class="form-group" id="1432129887075">
+            <div class="label">
+              <label for="username">用户名/账号</label>
+            </div>
+            <div class="field field-icon-right">
+              <span class="icon icon-user"></span>
+              <input class="input" id="username" name="username" maxlength="50" value="" data-validate="required:请填写用户名/账号,username:请输入英文字母开头的字母、下划线、数字,length#<50:字数在0-50个" placeholder="英文字母开头的字母、下划线、数字" type="text"></div>
+          </div>
+          <div class="form-group" id="1432129888225">
+            <div class="label">
+              <label for="password">密码</label>
+            </div>
+            <div class="field field-icon-right">
+              <span class="icon icon-key"></span>
+              <input class="input" id="password" name="password" maxlength="50" value="" data-validate="required:请填写密码,username:请输入英文字母开头的字母、下划线、数字,length#<50:字数在0-50个" placeholder="英文字母开头的字母、下划线、数字" type="password"></div>
+          </div>
+          <div class="form-group" id="1432129889801">
+            <div class="label">
+              <label for="captche">验证码</label>
+            </div>
+            <div class="field">
+              <div class="space xl6 xs4 xm3">
+                <input name="captche" id="captche" maxlength="50" type="text" class="input" data-validate="required:请填验证码" placeholder="验证码"></div>
+              <div class="space xl6 xs6 xm7">
+                <img src="__CONTROLLER__/verifyImg" width="160" height="32" border="none" class="passcode" onclick="this.src=this.src+'/'+Math.random()" />
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="space xs5 zhuce">
+            <button class="button button-block bg-main ksdl" type="submit">登陆</button>
+          </div>
+          <img src="__PUBLIC__/Home/images/adv1.jpg" class="img-responsive ksdl">
+          <img src="__PUBLIC__/Home/images/adv2.jpg" class="img-responsive ksdl"></form>
+      </div>
+      <div class="space xs5 xs1-move text-center user-left">
+        <div class="user-cebian">
+          <h4>使用其他帐号直接登录</h4>
+          <a href="" class="button button-big bg-main text-center ksdl radius-rounded">
+            <span class="icon-qq"></span>
+            腾讯QQ
+          </a>
+          <br>
+          <a href="" class="button button-big bg-blue text-center ksdl radius-rounded">
+            <span class="icon-weibo"></span>
+            微博
+          </a>
+          <br>
+          <a href="" class="button button-big bg-yellow text-center ksdl radius-rounded">
+            <span class="icon-weixin"></span>
+            微信
+          </a>
+          <br>
+          <a href="" class="button button-big bg-dot text-center ksdl radius-rounded">
+            <span class="icon-phone"></span>
+            手机动态
+          </a>
+        </div>
+        <div class="user-cebian">
+          <div class="space xs4 xs4-move">
+            <h3>微信</h3>
+          </div>
+          <div class="space xs4 xs4-move">
+            <img src="__PUBLIC__/Home/images/weixin.png" class="img-responsive"></div>
+          <div class="space xs4 xs4-move">
+            <h4>手机扫描,轻松关注</h4>
+          </div>
+
+        </div>
+        <h3>已是会员？</h3>
+        <h4>
+          <a href="">
+            <span class="icon-users"></span>
+            快速登陆
+          </a>
+        </h4>
+        <h3>密码丢失？</h3>
+        <h4>
+          <a href="">
+            <span class="icon-send (alias)"></span>
+            找回密码
+          </a>
+        </h4>
+      </div>
+    </div>
+  </div>
+  </block>

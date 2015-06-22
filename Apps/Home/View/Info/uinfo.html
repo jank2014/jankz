@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>usercenter</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link href="__PUBLIC__/Common/semantic/dist/semantic.min.css" rel="stylesheet">
+	<script src="__PUBLIC__/Common/js/jquery-2.1.4.min.js"></script>
+	<script src="__PUBLIC__/Common/semantic/dist/semantic.min.js"></script>
+	<script src="__PUBLIC__/Common/highchart/highcharts.js"></script>
+	<script src="__PUBLIC__/Common/highchart/exporting.js"></script>
+</head>
+<body>
+	<div class="ui page grid">
+		<br>
+		<br>
+		<div class="eight wide column">
+			<div class="ui raised segment">
+				<a class="ui ribbon label">Label</a>
+				<span>Inline Text</span>
+				<p></p>
+				<a class="ui teal ribbon label">Label</a>
+				<p></p>
+			</div>
+		</div>
+		<div class="eight wide column">
+			<div class="ui segment">
+				<a class="ui right ribbon label">Label</a>
+				<p></p>
+				<a class="ui teal right ribbon label">Label</a>
+				<p></p>
+			</div>
+		</div>
+
+		<!--  -->
+		<div class="ui secondary pointing menu">
+			<a class="active item"> <i class="home icon"></i>
+				Home
+			</a>
+			<a class="item"> <i class="feed icon"></i>
+				Share
+			</a>
+			<a class="item">
+				<i class="edit icon"></i>
+				Suggestion
+			</a>
+			<div class="right menu">
+				<div class="item">
+					<div class="ui transparent icon input">
+						<input placeholder="Search..." type="text">
+						<i class="search link icon"></i>
+					</div>
+				</div>
+				<a class="ui item teal" href="{:U('User/logout')}">Logout</a>
+			</div>
+		</div>
+
+		<div class="three wide column">
+			<h2 class="ui header">
+				<i class="home icon"></i>
+				<div class="content">个人中心</div>
+			</h2>
+		</div>
+		<div class="thirteen wide column">
+			<div class="ui success small message">
+				<i class="close icon"></i>
+				<div class="header">欢迎 {$user.username} 您已成功登陆！</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="ui celled page grid">
+
+		<div class="row">
+			<div class="three wide column">
+
+				<img src="__PUBLIC__/Home/images/uinfo/steve.jpg" alt="" class="ui medium circular image">
+				<h2 class="ui center aligned header">{$user.username}</h2>
+				<div class="ui divider"></div>
+				<div class="ui compact menu" id="qiandao">
+					<a class="item">
+						<i class="icon calendar"></i>
+						每日签到
+						<div class="floating ui red label" id="qdstatus">+1</div>
+					</a>
+				</div>
+				<div class="ui segment">
+					<label>积分：</label>
+					<a href="" id="score">{$user.score}</a>
+				</div>
+				<div class="ui divider"></div>
+				<br>
+				<div class="ui grid">
+					<div class="ui small vertical menu">
+						<a class="active item">
+							<div class="ui small teal label">1</div>
+							Inbox
+						</a>
+						<a class="item">
+							<div class="ui small label">51</div>
+							Spam
+						</a>
+						<a class="item">
+							<div class="ui small label">1</div>
+							Updates
+						</a>
+						<a class="item">
+							<div class="ui small label">1</div>
+							Updates
+						</a>
+						<a class="item">
+							<div class="ui small label">1</div>
+							Updates
+						</a>
+
+						<div class="item">
+							<div class="ui icon input">
+								<input placeholder="Search mail..." type="text">
+								<i class="search icon"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				<br>
+				<div class="ui grid">
+					<div class="ui vertical small menu">
+						<div class="header item">Products</div>
+						<div class="item">
+							CMS Solutions
+							<div class="menu">
+								<a class="item">Rails</a>
+								<a class="item">Python</a>
+								<a class="item">PHP</a>
+							</div>
+						</div>
+						<a class="item">Hosting</a>
+						<a class="item">Enterprise</a>
+						<div class="item">Our Company</div>
+						<a class="item">About Us</a>
+						<a class="item">Jobs</a>
+						<a class="item">Locations</a>
+						<div class="item">Support</div>
+						<a class="item">FAQ</a>
+						<a class="item">E-mail Support</a>
+					</div>
+				</div>
+			</div>
+			<div class="nine wide column">
+				<h2>我们的资源</h2>
+				<div class="ui statistics">
+					<div class="statistic">
+						<div class="value">
+							18
+							<small>TB</small>
+						</div>
+						<div class="label">各种技术培训视频</div>
+					</div>
+					<div class="statistic">
+						<div class="value">
+							1.8
+							<small>TB</small>
+						</div>
+						<div class="label">优秀程序员技术资料</div>
+					</div>
+					<div class="statistic">
+						<div class="value">
+							0.2
+							<small>TB</small>
+						</div>
+						<div class="label">各大网站源码</div>
+					</div>
+				</div>
+				<h2>百度网盘</h2>
+				<a class="ui tag label">视频</a>
+				<a class="ui red tag label">文档</a>
+				<a class="ui teal tag label">源码</a>
+				<br>
+				<br>
+				<div id="container"></div>
+				<br>
+				<br>
+				<!--  -->
+				<div class="ui segment right aligned">
+					<a class="ui teal tag label big">您将享有以下福利</a>
+					<div class="ui statistics">
+						<div class="statistic">
+							<div class="value">
+								10
+								<small>TB</small>
+							</div>
+							<div class="label">电影</div>
+						</div>
+						<div class="statistic">
+							<div class="value">
+								4.8
+								<small>TB</small>
+							</div>
+							<div class="label">音乐</div>
+						</div>
+						<div class="statistic">
+							<div class="value">
+								1.6
+								<small>TB</small>
+							</div>
+							<div class="label">综艺</div>
+						</div>
+					</div>
+				</div>
+				<!-- f福利 -->
+				<div class="teal ui labeled icon button">
+					<i class="record icon"></i>
+					电影
+				</div>
+				<br>
+				<br>
+				<div class="ui column grid">
+					<div class="column">
+						<div class="ui raised segment">
+							<a class="ui ribbon red label">大陆电影</a>
+							<span>Inline Text</span>
+							<p></p>
+							<a class="ui teal ribbon label">港台电影</a>
+							<p></p>
+							<a class="ui purple ribbon label">欧美电影</a>
+							<p></p>
+							<a class="ui ribbon red label">日韩电影</a>
+							<span>Inline Text</span>
+							<p></p>
+							<a class="ui teal ribbon label">泰国电影</a>
+							<p></p>
+							<a class="ui purple ribbon label">印度电影</a>
+							<p></p>
+						</div>
+					</div>
+				</div>
+				<!-- 福利 -->
+				<br>
+				<div class="teal ui labeled icon button">
+					<i class="sound icon"></i>
+					音乐
+				</div>
+				<br>
+				<br>
+				<div class="ui column grid">
+					<div class="column">
+						<div class="ui raised segment">
+							<a class="ui ribbon red label">大陆音乐</a>
+							<span>Inline Text</span>
+							<p></p>
+							<a class="ui teal ribbon label">港台音乐</a>
+							<p></p>
+							<a class="ui purple ribbon label">欧美音乐</a>
+							<p></p>
+							<a class="ui ribbon red label">日本音乐</a>
+							<span>Inline Text</span>
+							<p></p>
+							<a class="ui teal ribbon label">韩国音乐</a>
+							<p></p>
+							<a class="ui purple ribbon label">巡演唱会</a>
+							<p></p>
+						</div>
+					</div>
+				</div>
+				<!-- 福利 -->
+				<div class="ui segment right aligned">
+					<a class="ui teal tag label big">您将享有以下福利</a>
+					<div class="ui statistics">
+						<div class="statistic">
+							<div class="value">
+								18
+								<small>TB</small>
+							</div>
+							<div class="label">各种技术培训视频</div>
+						</div>
+						<div class="statistic">
+							<div class="value">
+								1.8
+								<small>TB</small>
+							</div>
+							<div class="label">优秀程序员技术资料</div>
+						</div>
+						<div class="statistic">
+							<div class="value">
+								0.2
+								<small>TB</small>
+							</div>
+							<div class="label">各大网站源码</div>
+						</div>
+					</div>
+				</div>
+				<div class="ui column grid">
+					<div class="column">
+						<div class="ui raised segment">
+							<a class="ui ribbon red label">前端专区</a>
+							<span>Inline Text</span>
+							<p></p>
+							<a class="ui teal ribbon label">开发工具</a>
+							<p></p>
+							<a class="ui purple ribbon label">特效专区</a>
+							<p></p>
+							<a class="ui ribbon red label">源码专区</a>
+							<span>Inline Text</span>
+							<p></p>
+							<a class="ui teal ribbon label">PHP专区</a>
+							<p></p>
+							<a class="ui purple ribbon label">Linux专区</a>
+							<p></p>
+						</div>
+					</div>
+				</div>
+				<!-- 福利 -->
+
+				<div class="ui segment right aligned">
+					<a class="ui teal tag label">如果您觉得我们不错请给出评价，这将是我们成长的动力</a>
+					<br>
+					<div class="ui divider"></div>
+					<div class="ui form">
+						<div class="field">
+							<div class="ui heart rating" id="comment" data-rating="6"></div>
+							<small>红心代表您对我们的喜欢喜欢程度</small>
+							<textarea></textarea>
+						</div>
+						<div class="ui submit teal button">评价</div>
+					</div>
+				</div>
+			</div>
+			<div class="four wide column">
+				<div class="ui card">
+					<div class="image">
+						<img src="__PUBLIC__/Home/images/uinfo/elliot.jpg"></div>
+					<div class="content">
+						<a class="header">Stevie Feliciano</a>
+						<div class="meta">
+							<span class="date">Joined in {$user.creattime}</span>
+						</div>
+						<div class="description">
+							Stevie Feliciano is a library scientist living in New York City.
+						</div>
+					</div>
+					<div class="extra content">
+						<a>
+							<i class="database icon"></i>
+							贡献：100 GB
+						</a>
+					</div>
+				</div>
+				<div class="ui negative small message">
+					<i class="close icon"></i>
+					<div class="header">您的信息不够完善</div>
+					<p>请尽快完善信息</p>
+				</div>
+				<div class="ui indicating red small progress">
+					<div class="bar"></div>
+					<div class="label">信息完善度20%</div>
+				</div>
+				<button class="ui button red right" id="btn1">完善信息</button>
+				<br>
+				<br>
+				<div class="ui black empty circular label"></div>
+				<div class="ui black empty circular label"></div>
+				<div class="ui green empty circular label"></div>
+				<div class="ui green empty circular label"></div>
+				<div class="ui red empty circular label"></div>
+				<div class="ui red empty circular label"></div>
+				<div class="ui blue empty circular label"></div>
+				<div class="ui blue empty circular label"></div>
+				<div class="ui purple empty circular label"></div>
+				<div class="ui purple empty circular label"></div>
+				<div class="ui teal empty circular label"></div>
+				<div class="ui teal empty circular label"></div>
+				<br>
+				<br>
+				<a class="ui teal tag label">我的动态</a>
+				<br>
+				<br>
+				<div class="ui small feed">
+					<div class="event">
+						<div class="label">
+							<img src="__PUBLIC__/Home/images/uinfo/elliot.jpg"></div>
+						<div class="content">
+							<div class="summary">
+								<a class="user">Elliot Fu</a>
+								added you as a friend
+								<div class="date">1 Hour Ago</div>
+							</div>
+							<div class="meta">
+								<a class="like">
+									<i class="like icon"></i>
+									4 Likes
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="event">
+						<div class="label">
+							<i class="pencil icon"></i>
+						</div>
+						<div class="content">
+							<div class="summary">
+								You submitted a new post to the page
+								<div class="date">3 days ago</div>
+							</div>
+							<div class="extra text">
+								I'm having a BBQ this weekend. Come by around 4pm if you can.
+							</div>
+							<div class="meta">
+								<a class="like">
+									<i class="like icon"></i>
+									11 Likes
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="event">
+						<div class="label">
+							<img src="__PUBLIC__/Home/images/uinfo/steve.jpg"></div>
+						<div class="content">
+							<div class="date">4 days ago</div>
+							<div class="summary">
+								<a>Helen Troy</a>
+								added
+								<a>2 new illustrations</a>
+							</div>
+							<div class="extra images">
+								<a>
+									<img src="__PUBLIC__/Home/images/uinfo/steve.jpg"></a>
+								<a>
+									<img src="__PUBLIC__/Home/images/uinfo/steve.jpg"></a>
+							</div>
+							<div class="meta">
+								<a class="like">
+									<i class="like icon"></i>
+									1 Like
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="event">
+						<div class="label">
+							<img src="__PUBLIC__/Home/images/uinfo/jenny.jpg"></div>
+						<div class="content">
+							<div class="summary">
+								<a class="user">Jenny Hess</a>
+								added you as a friend
+								<div class="date">2 Days Ago</div>
+							</div>
+							<div class="meta">
+								<a class="like">
+									<i class="like icon"></i>
+									8 Likes
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="event">
+						<div class="label">
+							<img src="__PUBLIC__/Home/images/uinfo/stevie1.jpg"></div>
+						<div class="content">
+							<div class="summary">
+								<a>Joe Henderson</a>
+								posted on his page
+								<div class="date">3 days ago</div>
+							</div>
+							<div class="extra text">
+								Ours is a life of constant reruns. We're always circling back to where we'd we started, then starting all over again.
+							</div>
+							<div class="meta">
+								<a class="like">
+									<i class="like icon"></i>
+									5 Likes
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="event">
+						<div class="label">
+							<img src="__PUBLIC__/Home/images/uinfo/jenny.jpg"></div>
+						<div class="content">
+							<div class="date">4 days ago</div>
+							<div class="summary">
+								<a>Justen Kitsune</a>
+								added
+								<a>2 new photos</a>
+								of you
+							</div>
+							<div class="extra images">
+								<a>
+									<img src="__PUBLIC__/Home/images/uinfo/steve.jpg"></a>
+								<a>
+									<img src="__PUBLIC__/Home/images/uinfo/steve.jpg"></a>
+							</div>
+							<div class="meta">
+								<a class="like">
+									<i class="like icon"></i>
+									41 Likes
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ui info modal">
+			<i class="close icon"></i>
+			<div class="header">完善我的信息</div>
+			<div class="content">
+				<div class="ui grid">
+					<div class="six wide column">
+						<div class="ui card">
+							<div class="image">
+								<img src="__PUBLIC__/Home/images/uinfo/elliot.jpg"></div>
+							<div class="content">
+								<a class="header">我的昵称</a>
+								<div class="meta">
+									<span class="date">{$user.creattime}</span>
+								</div>
+								<div class="description">
+									一句话介绍自己,让自己更有特色
+								</div>
+							</div>
+							<div class="extra content">
+								<a>
+									<i class="database icon"></i>
+									贡献 贡献越多积分等级越高
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="ten wide column">
+						<form class="ui form" method="post" action="" id="userinfo">
+							<h4 class="ui dividing header">填写卡片信息</h4>
+							<div class="two fields">
+								<div class="field">
+									<label>昵称</label>
+									<input name="first-name" placeholder="First Name" type="text"></div>
+								<div class="field">
+								<label>性别</label>
+									<div class="grouped inline fields">
+										<div class="field">
+												<input name="fruit"  type="radio">男
+										</div>
+										<div class="field">
+												<input name="fruit" type="radio">女
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="ui divider"></div>
+							<div class="field">
+								<label>一句话描述自己</label>
+								<textarea></textarea>
+							</div>
+							<div class="ui error message">
+								<div class="header">We noticed some issues</div>
+							</div>
+							<div class="ui submit button">完成</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!--  -->
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#qdstatus").hide();
+		$("#qiandao").click(function(){
+			$("#qdstatus").show();
+		});
+	});
+
+	</script>
+	<script>
+	$("#comment")
+  .rating({
+    initialRating: 6,
+    maxRating: 10
+  });
+</script>
+	<script type="text/javascript">
+	$('.message .close').on('click', function() {
+  $(this).closest('.message').fadeOut();
+});
+	$('.ui.checkbox')
+  .checkbox();
+	$('.ui.dropdown')
+	  .dropdown();
+	$("#btn1").click(function(){
+		$('.ui.info.modal')
+		  .modal('show')
+		;
+	});
+</script>
+	<script src="__PUBLIC__/Common/js/res.js"></script>
+</body>
+</html>

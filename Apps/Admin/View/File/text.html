@@ -1,0 +1,68 @@
+<extend name="Public:base"/>
+<block name="star">
+    <li>
+        <a href="{:U('Index/index')}" class="icon-home">开始</a>
+    </li>
+    <li>
+        <a href="{:U('Index/system')}" class="icon-cog">系统</a>
+    </li>
+    <li>
+        <a href="{:U('Index/content')}" class="icon-file-text">内容</a>
+    </li>
+    <li>
+        <a href="{:U('Auth/index')}" class="icon-shopping-cart">权限</a>
+    </li>
+    <li>
+        <a href="{:U('Member/index')}" class="icon-user">会员</a>
+    </li>
+    <li class="active">
+        <a href="{:U('File/index')}" class="icon-file">文件</a>
+        <ul>
+            <li>
+                <a href="{:U('index')}">图片</a>
+            </li>
+            <li class="active">
+                <a href="{:U('file')}">文件</a>
+            </li>
+            <li>
+                <a href="{:U('text')}">文档</a>
+            </li>
+            <li>
+                <a href="{:U('attchement')}">附件</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="#" class="icon-th-list">栏目</a>
+    </li>
+</block>
+<block name="admin">
+    <div class="admin">
+
+        <div class="tab">
+            <div class="tab-head"> <strong>文件</strong>
+                <ul class="tab-nav">
+                    <li class="active">
+                        <a href="#tab-file">文件</a>
+                    </li>
+                    <li>
+                        <a href="#tab-pic">图片</a>
+                    </li>
+                    <li>
+                        <a href="#tab-text">文档</a>
+                    </li>
+                    <li>
+                        <a href="#tab-attachement">附件</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-body">
+                <br />
+                <div class="tab-panel active" id="tab-file">文件</div>
+                <div class="tab-panel" id="tab-pic">图片</div>
+                <div class="tab-panel" id="tab-text">文档</div>
+                <div class="tab-panel" id="tab-attachement">附件</div>
+            </div>
+        </div>
+    </div>
+    </block>

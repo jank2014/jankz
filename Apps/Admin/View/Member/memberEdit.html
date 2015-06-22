@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title>add</title>
+    <link rel="stylesheet" href="__PUBLIC__/Common/pintuer/pintuer.css">
+    <link rel="stylesheet" href="__PUBLIC__/Admin/css/admin.css">
+    <script src="__PUBLIC__/Common/pintuer/jquery.js"></script>
+    <script src="__PUBLIC__/Common/pintuer/pintuer.js"></script>
+    <script src="__PUBLIC__/Common/pintuer/respond.js"></script>
+    <script src="__PUBLIC__/Common/pintuer/admin.js"></script>
+    <link type="__PUBLIC__/Admin/images/x-icon" href="http://www.pintuer.com/favicon.ico" rel="shortcut icon" />
+    <link href="http://www.pintuer.com/favicon.ico" rel="bookmark icon" />
+</head>
+
+<body>
+    <div class="lefter">
+        <div class="logo">
+            <a href="http://www.pintuer.com" target="_blank">
+                <img src="__PUBLIC__/Admin/images/logo.png" alt="后台管理系统" />
+            </a>
+        </div>
+    </div>
+    <div class="righter nav-navicon" id="admin-nav">
+        <div class="mainer">
+            <div class="admin-navbar">
+                <span class="float-right">
+                    <a class="button button-little bg-main" href="{:U('Home/Index/index')}" target="_blank">前台首页</a>
+                    <a class="button button-little bg-yellow" href="{:U('Manager/logout')}">注销登录</a>
+                </span>
+                <ul class="nav nav-inline admin-nav">
+                    <li>
+                        <a href="{:U('Index/index')}" class="icon-home">开始</a>
+                        <ul>
+                            <li>
+                                <a href="Index/system">系统设置</a>
+                            </li>
+                            <li>
+                                <a href="Index/content">内容管理</a>
+                            </li>
+                            <li>
+                                <a href="#">订单管理</a>
+                            </li>
+                            <li class="active">
+                                <a href="#">会员管理</a>
+                            </li>
+                            <li>
+                                <a href="#">文件管理</a>
+                            </li>
+                            <li>
+                                <a href="#">栏目管理</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{:U('Index/system')}" class="icon-cog">系统</a>
+                        <ul>
+                            <li>
+                                <a href="#">全局设置</a>
+                            </li>
+                            <li class="active">
+                                <a href="#">系统设置</a>
+                            </li>
+                            <li>
+                                <a href="#">会员设置</a>
+                            </li>
+                            <li>
+                                <a href="#">积分设置</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{:U('Index/content')}" class="icon-file-text">内容</a>
+                        <ul>
+                            <li>
+                                <a href="#">添加内容</a>
+                            </li>
+                            <li class="active">
+                                <a href="#">内容管理</a>
+                            </li>
+                            <li>
+                                <a href="#">分类设置</a>
+                            </li>
+                            <li>
+                                <a href="#">链接管理</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{:U('Auth/index')}" class="icon-shopping-cart">权限</a>
+                        <ul>
+
+                            <li>
+                                <a href="">权限列表</a>
+                            </li>
+                            <li>
+                                <a href="">角色列表</a>
+                            </li>
+                            <li>
+                                <a href="">用户组</a>
+                            </li>
+                            <li>
+                                <a href="">添加权限</a>
+                            </li>
+                            <li>
+                                <a href="">添加用户</a>
+                            </li>
+                            <li>
+                                <a href="">添加角色</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="{:U('Member/index')}" class="icon-user">会员</a>
+                        <ul>
+                            <li class="active">
+                                <a href="{:U('Member/memberEdit')}">编辑会员</a>
+                            </li>
+                            <li>
+                                <a href="">添加会员</a>
+                            </li>
+                            <li>
+                                <a href="">删除会员</a>
+                            </li>
+                            <li>
+                                <a href="">积分设置</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{:U('File/index')}" class="icon-file">文件</a>
+                        <ul>
+                            <li>
+                                <a href="">文件</a>
+                            </li>
+                            <li>
+                                <a href="">图片</a>
+                            </li>
+                            <li>
+                                <a href="">文档</a>
+                            </li>
+                            <li>
+                                <a href="">附件</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="icon-th-list">栏目</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="admin-bread">
+                <span>您好，admin，欢迎您的光临。</span>
+                <ul class="bread">
+                    <li>
+                        <a href="{:U('Index/index')}" class="icon-home">开始</a>
+                    </li>
+                    <li>
+                        <a href="{:U('Member/index')}">会员</a>
+                    </li>
+                    <li>编辑会员</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="admin">
+        <div class="line-big">
+            <div class="xb5 xb2-move">
+                <form action="{:U('memberEdit')}" method="post">
+                    <div class="dialog-body padding-big">
+                        <div class="form-group" id="1432781060378">
+                            <div class="label">
+                                <label for="id">ID</label>
+                            </div>
+                            <div class="field">
+                                <input class="input" disabled="disabled" id="id" name="id" maxlength="50" value="{$user.id}" placeholder="英文字母开头的字母、下划线、数字" type="text"></div>
+                        </div>
+                        <div class="form-group" id="1432781060378">
+                            <div class="label">
+                                <label for="username">用户名/账号</label>
+                            </div>
+                            <div class="field">
+                                <input class="input" id="username" name="username" maxlength="50" value="{$user.username}" placeholder="英文字母开头的字母、下划线、数字" type="text"></div>
+                        </div>
+                        <div class="form-group" id="1432781063157">
+                            <div class="label">
+                                <label for="password">密码</label>
+                            </div>
+                            <div class="field">
+                                <input class="input" id="password" name="password" maxlength="50" value="{$user.password}"  placeholder="英文字母开头的字母、下划线、数字" type="text"></div>
+                        </div>
+                        <div class="form-group" id="1432781064549">
+                            <div class="label">
+                                <label for="email">电子邮箱</label>
+                            </div>
+                            <div class="field">
+                                <input class="input" id="email" name="email" maxlength="50" value="{$user.email}"  placeholder="请输入电子邮箱" type="text"></div>
+                        </div>
+                        <div class="form-group" id="1432781065150">
+                            <div class="label">
+                                <label for="qq">QQ号码</label>
+                            </div>
+                            <div class="field">
+                                <input class="input" id="qq" name="qq" maxlength="11" value="{$user.qq}"  placeholder="请输入QQ号码" type="text"></div>
+                        </div>
+                        <div class="form-group" id="1432781066125">
+                            <div class="label">
+                                <label for="mobile">手机号</label>
+                            </div>
+                            <div class="field">
+                                <input class="input" id="mobile" name="phone" maxlength="11" value="{$user.phone}"  placeholder="输入手机号码" type="text"></div>
+                        </div>
+                        <button class="button bg-green" type="submit">确认</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

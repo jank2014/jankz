@@ -1,0 +1,26 @@
+<extend name="Public:base"/>
+<block name="nav">
+  <include file="Public:nav" />
+</block>
+<block name="fream">
+  <!-- 其他 -->
+  <div class="container">
+    <div class="line-middle list">
+      <h3 class="padding-bottom border-bottom margin-bottom padding icon-caret-right"> 其他精选</h3>
+      <!-- 其他循环开始 -->
+      <foreach name="other" item="oth">
+        <div class="xl12 xs6 xm3 xb3 margin-bottom">
+          <div class="media">
+            <a class="img clearfix" href="{$oth.link}" target="_blank">
+              <img src="{$oth.image}" class="img-responsive padding-small bg border radius-big" alt="" />
+            </a>
+            <div class="media-body padding-top border-bottom">
+              <strong class="text-center">{$oth.name}</strong>
+              <a href="{$oth.link}" target="_blank" class="button button-little bg-main margin-small">访问</a>
+            </div>
+          </div>
+        </div>
+      </foreach>
+      <!-- 循环结束 --> </div>
+  </div>
+</block>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>jankz</title>
+  <link rel="stylesheet" href="__PUBLIC__/Common/pintuer/pintuer.css">
+  <link rel="stylesheet" href="__PUBLIC__/Home/css/main.css">
+  <script src="__PUBLIC__/Common/pintuer/jquery.js"></script>
+  <script src="__PUBLIC__/Common/pintuer/pintuer.js"></script>
+  <script src="__PUBLIC__/Common/pintuer/holder.js"></script>
+  <script src="__PUBLIC__/Common/pintuer/respond.js"></script>
+  <link type="image/x-icon" href="__PUBLIC__/Home/images/favicon.ico" rel="shortcut icon" />
+  <link href="__PUBLIC__/Home/images/favicon.ico" rel="bookmark icon" />
+</head>
+
+<body>
+  <!--导航-->
+  <div class="demo-nav padding-big-top padding-big-bottom fixed">
+    <div class="container padding-top padding-bottom">
+      <div class="line">
+        <div class="xl12 xs3 xm3 xb2">
+          <button class="button icon-navicon float-right" data-target="#header-demo"></button>
+          <a target="_blank" href="{:U('index')}">
+            <img src="__PUBLIC__/Home/images/logo.png" alt="前端CCS框架" />
+          </a>
+        </div>
+        <div class=" xl12 xs9 xm9 xb10 nav-navicon" id="header-demo">
+
+          <div class="xs8 xm6 xb6 padding-small">
+            <ul class="nav nav-menu nav-inline nav-pills nav-big">
+              <li>
+                <a href="{:U('Index/index')}">首页</a>
+              </li>
+              <li>
+                <a href="{:U('Index/fream')}">框架</a>
+              </li>
+              <li>
+                <a href="{:U('Index/zuopin')}">作品</a>
+              </li>
+              <li>
+                <a href="{:U('Index/qianyan')}">前沿</a>
+              </li>
+              <li>
+                <a href="{:U('Index/more')}">
+                  更多
+                  <span class="arrow"></span>
+                </a>
+                <ul class="dropdown">
+                  <li>
+                    <a href="{:U('Index/about')}">关于我们</a>
+                  </li>
+                  <li>
+                    <a href="">吉贞公益</a>
+                  </li>
+                  <li>
+                    <a href="">吉贞轻说</a>
+                  </li>
+                  <li>
+                    <a href="">吉贞论坛</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="hidden-l hidden-s xm3 xb3">
+            <form>
+              <div class="input-group padding-little-top">
+                <input type="text" class="input border-main" name="keywords" size="30" placeholder="关键词" />
+                <span class="addbtn">
+                  <button type="button" class="button bg-main icon-search"></button>
+                </span>
+              </div>
+            </form>
+          </div>
+          <div class="xs4  xm3 xm1-move xb2 xb1-move">
+            <div class="button-group">
+              <a type="button" class="dropdown-toggle text-big">
+                <img src="__PUBLIC__/Home/images/favicon.ico" width="30" height="30" alt="">
+                个人中心
+                <span class="downward"></span>
+              </a>
+              <ul class="drop-menu">
+                <li class="text-center">
+                  <a href="">
+                    <span class="icon-user"></span>
+                    &nbsp;&nbsp;我的平台
+                  </a>
+                </li>
+                <li class="text-center">
+                  <a href="">
+                    <span class="icon-edit"></span>
+                    &nbsp;&nbsp;完善资料
+                  </a>
+                </li>
+                <li class="text-center">
+                  <a href="">
+                    <span class="icon-cog"></span>
+                    &nbsp;&nbsp;账号设置
+                  </a>
+                </li>
+                <li class="text-center">
+                  <a href="">
+                    <span class="icon-group (alias)"></span>
+                    &nbsp;&nbsp;关于我们
+                  </a>
+                </li>
+                <li class="text-center">
+                  <a href="">
+                    <span class="icon-paper-plane"></span>
+                    &nbsp;&nbsp;联系我们
+                  </a>
+                </li>
+                <li class="text-center">
+                  <a href="">
+                    <span class="icon-key"></span>
+                    &nbsp;&nbsp;修改密码
+                  </a>
+                </li>
+                <li class="text-center">
+                  <a href="{:U('logout')}">
+                    <span class="icon-power-off"></span>
+                    &nbsp;&nbsp;退出登录
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 个人中心 -->
+  <div class="container">
+    <div class="line-big">
+      <div class="xl4 xs3 xm2">
+        <h3 class="padding-bottom border-bottom">{$username}个人中心</h3>
+        <br />
+        <div id="notes"></div>
+        <br />
+        <img src="__PUBLIC__/Home/images/1.jpg" alt="" width="100" height="100" class="radius-circle ksdl"> <strong class="text-big">吉贞</strong>
+        <div class="button-toolbar ksdl">
+          <div class="button-group">
+            <button type="button" class="button button-small">
+              <span class="icon-edit text-blue"></span>
+              修改
+            </button>
+            <button type="button" class="button button-small">
+              <span class="icon-trash-o text-red"></span>
+              签到
+            </button>
+          </div>
+        </div>
+        <div class="ksdl">
+          <ul class="list-group">
+            <li>
+              <a href="">
+                <span class="float-right badge bg-main">99+</span>
+                我的作品
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span class="float-right badge bg-dot">25</span>
+                我的收藏
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span class></span>
+                更换头像
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span class="float-right badge bg-green">100</span>
+                我的积分
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span class></span>
+                积分获取
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="margin">
+          <img src="holder.js/150x150" alt="" class="img-responsive">
+          <img src="holder.js/150x150" alt="" class="img-responsive">
+          <img src="holder.js/150x150" alt="" class="img-responsive">
+          <img src="holder.js/150x150" alt="" class="img-responsive">
+        </div>
+      </div>
+      <div class="xl12 xs9 xm10">
+        <div class="keypoint bg">
+          <h1>你好，用户！</h1>
+          <p>国内优秀的HTML、CSS、JS跨屏响应式前端框架，自动适应电脑、平板、手机等设备，让前端开发更简单、快速、便捷。</p>
+          <p>
+            <button class="button bg-main">详细介绍</button>
+          </p>
+        </div>
+        <h3 class="padding-bottom border-bottom">
+          精彩推荐
+          <span class="float-right icon-cog">
+            <a href="" class="text-small">修改</a>
+          </span>
+        </h3>
+        <br>
+        <div class="line-small list-box ksdl">
+          <div class="xl6 xs4 xm3 xb2">
+            <a href="#">拼图是一款开源的专业网页前端UI解决方案</a>
+          </div>
+          <div class="xl6 xs4 xm3 xb2">
+            <a href="#">由HTML、CSS、Javascrip三者结合的前端框架</a>
+          </div>
+          <div class="xl6 xs4 xm3 xb2">
+            <a href="#">它配合js效果，提供了拼图的CSS、HTML标准</a>
+          </div>
+          <div class="xl6 xs4 xm3 xb2">
+            <a href="#">它配合js效果，提供了拼图的CSS、HTML标准</a>
+          </div>
+          <div class="xl6 xs4 xm3 xb2">
+            <a href="#">它配合js效果，提供了拼图的CSS、HTML标准</a>
+          </div>
+          <div class="xl6 xs4 xm3 xb2">
+            <a href="#">它配合js效果，提供了拼图的CSS、HTML标准</a>
+          </div>
+        </div>
+        <div class="line-small list-box ksdl">
+          <div class="xl6 xs4 xm3 xb2">
+            <a href="#">受到设计师、前端工程师、程序员及网页设计初学者的特别喜爱</a>
+          </div>
+          <div class="xl6 xs4 xm3 xb2">
+            <a href="#">拼图框架提供了CSS的重定义、元件样式的预设、样式组件</a>
+          </div>
+          <div class="xl6 xs4 xm3 xb2">
+            <a href="#">拼图框架提供了CSS的重定义、元件样式的预设、样式组件</a>
+          </div>
+          <div class="xl6 xs4 xm3 xb2">
+            <a href="#">拼图框架提供了CSS的重定义、元件样式的预设、样式组件</a>
+          </div>
+          <div class="xl6 xs4 xm3 xb2">
+            <a href="#">拼图框架提供了CSS的重定义、元件样式的预设、样式组件</a>
+          </div>
+          <div class="xl6 xs4 xm3 xb2">
+            <a href="#">拼图框架提供了CSS的重定义、元件样式的预设、样式组件</a>
+          </div>
+        </div>
+
+        <h3 class="padding-bottom border-bottom">我的个人信息</h3>
+        <br>
+        <div class="line-small">
+          <div class="xm5 border radius-big bg-dot-light padding-small">
+            <form class="" onsubmit="return false;">
+              <div class="form-group" id="f_1432386569385">
+                <div class="label">
+                  <label for="f_username_txt">用户名/账号</label>
+                </div>
+                <div class="field">
+                  <input class="input" id="f_username_txt" name="f_username_txt" maxlength="50" value="" data-validate="required:请填写用户名/账号,username:请输入英文字母开头的字母、下划线、数字,ajax#(demo/getdata.html?username={value}):该账号已存在,length#<50:字数在0-50个" placeholder="英文字母开头的字母、下划线、数字" type="text"></div>
+              </div>
+              <div class="form-group" id="f_1432386570485">
+                <div class="label">
+                  <label for="f_email_txt">电子邮箱</label>
+                </div>
+                <div class="field">
+                  <input class="input" id="f_email_txt" name="f_email_txt" maxlength="50" value="" data-validate="required:请填写密码,email:请输入Email,如：1979788761@qq.com,length#<50:字数在0-50个" placeholder="请输入电子邮箱" type="text"></div>
+              </div>
+              <div class="form-group" id="f_1432386570940">
+                <div class="label">
+                  <label for="f_qq_txt">QQ号码</label>
+                </div>
+                <div class="field">
+                  <input class="input" id="f_qq_txt" name="f_qq_txt" maxlength="11" value="" data-validate="required:请填写QQ号码,qq:请输入QQ号码,如：1979788761,length#<11:字数在0-11个" placeholder="请输入QQ号码" type="text"></div>
+              </div>
+              <div class="form-group" id="f_1432386575665">
+                <div class="label">
+                  <label for="f_phone_txt">联系电话</label>
+                </div>
+                <div class="field">
+                  <input class="input" id="f_phone_txt" name="f_phone_txt" maxlength="12" value="" data-validate="required:请填写联系电话,phone:请输入联系电话" placeholder="输入联系电话" type="text"></div>
+              </div>
+              <div class="form-group" id="f_1432386577661">
+                <div class="label">
+                  <label for="f_chinesename_txt">中文名</label>
+                </div>
+                <div class="field">
+                  <input class="input" id="f_chinesename_txt" name="f_chinesename_txt" maxlength="15" value="" data-validate="required:请填写姓名,chinesename:请输入2-15个汉字" placeholder="输入汉字" type="text"></div>
+              </div>
+              <div class="form-group" id="f_1432386578318">
+                <div class="label">
+                  <label for="f_englishname_txt">英文名</label>
+                </div>
+                <div class="field">
+                  <input class="input" id="f_englishname_txt" name="f_englishname_txt" maxlength="161" value="" data-validate="required:请填写英文名,englishname:请输入英文名，1到161个字母" placeholder="输入英文名" type="text"></div>
+              </div>
+              <div class="form-group" id="f_1432386581284">
+                <div class="label">
+                  <label for="f_age_txt">年龄</label>
+                </div>
+                <div class="field">
+                  <input class="input" id="f_age_txt" name="f_age_txt" maxlength="2" value="" data-validate="required:请填写年龄,age:请输入年龄，1到99岁" placeholder="输入年龄" type="text"></div>
+              </div>
+              <div class="form-group" id="f_1432386582076">
+                <div class="label">
+                  <label for="f_date_txt">出生日期</label>
+                </div>
+                <div class="field">
+                  <input class="input" id="f_date_txt" name="f_date_txt" maxlength="2" value="" data-validate="required:请填选择日期,date:请输入日期，如：2015-05-06" placeholder="输入日期" type="text"></div>
+              </div>
+              <div class="form-group" id="f_1432386584366">
+                <div class="label">
+                  <label for="f_zipcode_txt">邮政编码</label>
+                </div>
+                <div class="field">
+                  <input class="input" id="f_zipcode_txt" name="f_zipcode_txt" maxlength="6" value="" data-validate="required:请填写邮政编码,zipcode:请输入邮政编码" placeholder="请输入邮编" type="text"></div>
+              </div>
+              <div class="form-group" id="f_1432386586897">
+                <div class="label">
+                  <label for="f_url_txt">个人主页</label>
+                </div>
+                <div class="field">
+                  <input class="input" id="f_url_txt" name="f_url_txt" maxlength="50" value="" data-validate="required:请填写网址,zipcode:请输入网址，以http开头" placeholder="请输入网址" type="text"></div>
+              </div>
+              <div class="form-group" id="f_1432386593092">
+                <div class="label">
+                  <label for="f_class">学历</label>
+                </div>
+                <div class="field">
+                  <select class="input" id="f_class" name="f_class" data-validate="required:请选择,length#>
+                    =1:至少选择1项">
+                    <option>大专</option>
+                    <option>中专</option>
+                    <option>本科</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group" id="f_1432386598630">
+                <div class="label">
+                  <label for="f_currency_txt">月收入</label>
+                </div>
+                <div class="field">
+                  <input class="input" id="f_currency_txt" name="f_currency_txt" maxlength="10" value="" data-validate="required:请填写月收入,currency:请输入月收入，1到99岁,length#<10:字数在0-10个" placeholder="输入月收入" type="text"></div>
+              </div>
+              <div class="form-group" id="f_1432386599448">
+                <div class="label">
+                  <label for="f_like_txt">爱好</label>
+                </div>
+                <div class="field">
+                  <div class="button-group checkbox">
+                    <label class="button active">
+                      <input name="f_like_txt" value="1" checked="checked" data-validate="required:请选择,length#>=1:至少选择1项" type="checkbox">吃</label>
+                    <label class="button active">
+                      <input name="f_like_txt" value="2" data-validate="required:请选择,length#>=1:至少选择1项" type="checkbox">喝</label>
+                    <label class="button">
+                      <input name="f_like_txt" value="3" data-validate="required:请选择,length#>=1:至少选择1项" type="checkbox">玩</label>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="xm5"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--底部-->
+  <br />
+  <br />
+  <div class="container-layout bg-gray bg-inverse padding-big-top padding-big-bottom">
+    <div class="container">
+      <div class="table-responsive padding hidden-l">
+        <ul class="nav nav-sitemap">
+          <li>
+            <a href="#">吉贞公益</a>
+            <ul>
+              <li>
+                <a href="#">新闻公告</a>
+              </li>
+              <li>
+                <a href="#">公益资讯</a>
+              </li>
+              <li>
+                <a href="#">公益报道</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">吉贞系列</a>
+            <ul>
+              <li>
+                <a href="#">吉贞文学</a>
+              </li>
+              <li>
+                <a href="#">产品音乐</a>
+              </li>
+              <li>
+                <a href="#">产品轻说</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">吉贞论坛</a>
+            <ul>
+              <li>
+                <a href="#">科技前沿</a>
+              </li>
+              <li>
+                <a href="#">技术交流</a>
+              </li>
+              <li>
+                <a href="#">酷炫时尚</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">留言反馈</a>
+          </li>
+          <li>
+            <a href="#">联系方式</a>
+          </li>
+        </ul>
+      </div>
+      <div class="text-center">版权所有 © jankz.com All Rights Reserved，图ICP备：380959609</div>
+    </div>
+  </div>
+</body>
+</html>

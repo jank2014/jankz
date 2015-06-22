@@ -1,0 +1,100 @@
+<extend name="Public:base"/>
+<block name="star">
+    <li>
+        <a href="{:U('Index/index')}" class="icon-home">开始</a>
+    </li>
+    <li>
+        <a href="{:U('Index/system')}" class="icon-cog">系统</a>
+    </li>
+    <li class="active">
+        <a href="{:U('Index/content')}" class="icon-file-text">内容</a>
+        <ul>
+            <li class="active">
+                <a href="{:U('Index/qianyan')}">添加前沿</a>
+            </li>
+            <li>
+                <a href="{:U('Index/contentManager')}">内容管理</a>
+            </li>
+            <li>
+                <a href="{:U('Qianyan/qylist')}">前沿列表</a>
+            </li>
+            <li>
+                <a href="#">修改前沿</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="{:U('Auth/index')}" class="icon-shopping-cart">权限</a>
+    </li>
+    <li>
+        <a href="{:U('Member/index')}" class="icon-user">会员</a>
+    </li>
+    <li>
+        <a href="{:U('File/index')}" class="icon-file">文件</a>
+    </li>
+    <li>
+        <a href="#" class="icon-th-list">栏目</a>
+    </li>
+</block>
+<block name="admin">
+    <div class="admin">
+        <div class="conatiner">
+            <div class="line">
+                <form action="{:U('addQy')}" method="post">
+                    <div class="xm6 xm4-move margin-bottom">
+                        <div class="form-group">
+                            <div class="xm1">
+                                <h3>标题</h3>
+                            </div>
+                            <div class="xm5">
+                                <input type="text" name="title" class="input"></div>
+                        </div>
+                    </div>
+                    <div class="container clearfix">
+                        <div class="line-big">
+                            <div class="form-group">
+                                <div class="label xm1 xm1-move">
+                                    <label for="type" class="padding">类别</label>
+                                </div>
+                                <div class="field xm4">
+                                    <input name="type" value="1"  type="radio" checked="checked">
+                                   框架
+                                    <input name="type" value="2"  type="radio">
+                                    php
+                                    <input name="type" value="3"  type="radio">linux
+                                    <input name="type" value="4"  type="radio">工具
+                                    <input name="type" value="5"  type="radio">分享
+                                    <input name="type" value="6"  type="radio">万象</div>
+                                <div class="label xm1">
+                                    <label for="status" class="padding">开启状态</label>
+                                </div>
+                                <div class="field xm2">
+                                    <input name="status" value="1"  type="radio" checked="checked">
+                                    开启
+                                    <input name="status" value="0"  type="radio">关闭</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <script id="cont" name="content" type="text/plain" style="width:100%;height:500px;"></script> -->
+                    <textarea id="cont" name="content" type="text/plain" style="width:100%;height:500px;"></textarea>
+                    <input type="submit" value="提交内容" name="test"  class="button bg-main" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+        <!-- 配置文件 -->
+        <script type="text/javascript" src="__PUBLIC__/Common/ueditor/ueditor.config.js"></script>
+        <!-- 编辑器源码文件 -->
+        <script type="text/javascript" src="__PUBLIC__/Common/ueditor/ueditor.all.js"></script>
+        <!-- 实例化编辑器 -->
+        <script type="text/javascript">
+            var ue = UE.getEditor('cont', {
+                autoHeightEnabled: true,
+                autoFloatEnabled: true
+            });
+        </script>
+</block>

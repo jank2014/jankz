@@ -1,0 +1,292 @@
+<extend name="Public:base"/>
+<block name="star">
+    <li>
+        <a href="{:U('Index/index')}" class="icon-home">开始</a>
+    </li>
+    <li>
+        <a href="{:U('Index/system')}" class="icon-cog">系统</a>
+    </li>
+    <li>
+        <a href="{:U('Index/content')}" class="icon-file-text">内容</a>
+    </li>
+    <li class="active">
+        <a href="{:U('Auth/index')}" class="icon-shopping-cart">权限</a>
+        <ul>
+
+            <li class="active">
+                <a href="">权限列表</a>
+            </li>
+            <li>
+                <a href="">角色列表</a>
+            </li>
+            <li>
+                <a href="">用户组</a>
+            </li>
+            <li>
+                <a href="">添加权限</a>
+            </li>
+            <li>
+                <a href="">添加角色</a>
+            </li>
+            <li>
+                <a href="">添加用户组</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="{:U('Member/index')}" class="icon-user">会员</a>
+    </li>
+    <li>
+        <a href="{:U('File/index')}" class="icon-file">文件</a>
+    </li>
+    <li>
+        <a href="#" class="icon-th-list">栏目</a>
+    </li>
+</block>
+<block name="admin">
+    <div class="admin">
+
+        <div class="tab">
+            <div class="tab-head"> <strong>权限列表</strong>
+                <ul class="tab-nav">
+                    <li class="active">
+                        <a href="#tab-auth-list">权限列表</a>
+                    </li>
+                    <li>
+                        <a href="#tab-role">角色列表</a>
+                    </li>
+                    <li>
+                        <a href="#tab-group">用户组</a>
+                    </li>
+                    <li>
+                        <a href="#tab-auth-add">添加权限</a>
+                    </li>
+                    <li>
+                        <a href="#tab-role-add">添加角色</a>
+                    </li>
+                    <li>
+                        <a href="#tab-group-add">添加用户组</a>
+                    </li>
+                </ul>
+            </div>
+            <!--  -->
+            <div class="tab-body">
+                <br />
+                <div class="tab-panel active" id="tab-auth-list">
+                    <form method="post">
+                        <div class="panel admin-panel">
+                            <div class="panel-head"> <strong>权限列表</strong>
+                            </div>
+                            <div class="padding border-bottom">
+                                <input type="button" class="button button-small checkall" name="checkall" checkfor="id" value="全选" />
+                                <input type="button" class="button button-small border-green" value="添加文章" />
+                                <input type="button" class="button button-small border-yellow" value="批量删除" />
+                                <input type="button" class="button button-small border-blue" value="回收站" />
+                            </div>
+                            <!-- 权限表 -->
+                            <table class="table table-hover">
+                                <tr>
+                                    <th width="7%">ID</th>
+                                    <th width="*">name</th>
+                                    <th width="8%">title</th>
+                                    <th width="8%">type</th>
+                                    <th width="8%">status</th>
+                                    <th width="8%">condition</th>
+                                    <th width="8%">操作</th>
+                                </tr>
+                                <foreach name="rule" item="r">
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="id" value="1" />
+                                            {$r.id}
+                                        </td>
+                                        <td>{$r.name}</td>
+                                        <td>{$r.title}</td>
+                                        <td>{$r.type}</td>
+                                        <td>{$r.status}</td>
+                                        <td>{$r.content}</td>
+                                        <td>
+                                            <a class="button border-blue button-little" href="#">修改</a>
+                                            <a class="button border-yellow button-little" href="#" onclick="{if(confirm('确认删除?')){return true;}return false;}">删除</a>
+                                        </td>
+                                    </tr>
+                                </foreach>
+                            </table>
+                            <div class="panel-foot text-center">
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#">上一页</a>
+                                    </li>
+                                </ul>
+                                <ul class="pagination pagination-group">
+                                    <li>
+                                        <a href="#">1</a>
+                                    </li>
+                                    <li class="active">
+                                        <a href="#">2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">3</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">4</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">5</a>
+                                    </li>
+                                </ul>
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#">下一页</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                    <br />
+                </div>
+                <!-- 角色列表 -->
+                <div class="tab-panel" id="tab-role">
+                    <form method="post">
+                        <div class="panel admin-panel">
+                            <div class="panel-head">
+                                <strong>权限列表</strong>
+                            </div>
+                            <div class="padding border-bottom">
+                                <input type="button" class="button button-small checkall" name="checkall" checkfor="id" value="全选" />
+                                <input type="button" class="button button-small border-green" value="添加文章" />
+                                <input type="button" class="button button-small border-yellow" value="批量删除" />
+                                <input type="button" class="button button-small border-blue" value="回收站" />
+                            </div>
+                            <!-- 权限表 -->
+                            <table class="table table-hover">
+                                <tr>
+                                    <th width="7%">ID</th>
+                                    <th width="8%">title</th>
+                                    <th width="8%">status</th>
+                                    <th width="8%">rules</th>
+                                    <th width="8%">操作</th>
+                                </tr>
+                                <foreach name="group" item="g">
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="id" value="1" />
+                                            {$g.id}
+                                        </td>
+                                        <td>{$g.title}</td>
+                                        <td>{$g.status}</td>
+                                        <td>{$g.rules}</td>
+                                        <td>
+                                            <a class="button border-blue button-little" href="#">修改</a>
+                                            <a class="button border-yellow button-little" href="#" onclick="{if(confirm('确认删除?')){return true;}return false;}">删除</a>
+                                        </td>
+                                    </tr>
+                                </foreach>
+                            </table>
+                            <div class="panel-foot text-center">
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#">上一页</a>
+                                    </li>
+                                </ul>
+                                <ul class="pagination pagination-group">
+                                    <li>
+                                        <a href="#">1</a>
+                                    </li>
+                                    <li class="active">
+                                        <a href="#">2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">3</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">4</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">5</a>
+                                    </li>
+                                </ul>
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#">下一页</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <br>
+                <!--  -->
+                <div class="tab-panel" id="tab-group">
+                    <form method="post">
+                        <div class="panel admin-panel">
+                            <div class="panel-head">
+                                <strong>权限列表</strong>
+                            </div>
+                            <div class="padding border-bottom">
+                                <input type="button" class="button button-small checkall" name="checkall" checkfor="id" value="全选" />
+                                <input type="button" class="button button-small border-green" value="添加文章" />
+                                <input type="button" class="button button-small border-yellow" value="批量删除" />
+                                <input type="button" class="button button-small border-blue" value="回收站" />
+                            </div>
+                            <!-- 权限表 -->
+                            <table class="table table-hover">
+                                <tr>
+                                    <th width="7%">UID</th>
+                                    <th width="7">GROUP_ID</th>
+                                    <th width="8%">操作</th>
+                                </tr>
+                                <foreach name="group_access" item="gac">
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="id" value="1" />
+                                        </td>
+                                        <td>{$gac.uid}</td>
+                                        <td>{$gac.group_id}</td>
+                                        <td>
+                                            <a class="button border-blue button-little" href="#">修改</a>
+                                            <a class="button border-yellow button-little" href="#" onclick="{if(confirm('确认删除?')){return true;}return false;}">删除</a>
+                                        </td>
+                                    </tr>
+                                </foreach>
+                            </table>
+                            <div class="panel-foot text-center">
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#">上一页</a>
+                                    </li>
+                                </ul>
+                                <ul class="pagination pagination-group">
+                                    <li>
+                                        <a href="#">1</a>
+                                    </li>
+                                    <li class="active">
+                                        <a href="#">2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">3</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">4</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">5</a>
+                                    </li>
+                                </ul>
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#">下一页</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <br>
+                <div class="tab-panel" id="tab-auth-add">添加权限</div>
+                <div class="tab-panel" id="tab-role-add">添加角色</div>
+                <div class="tab-panel" id="tab-group-add">用户组</div>
+            </div>
+        </div>
+    </div>
+</block>

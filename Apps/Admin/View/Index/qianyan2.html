@@ -1,0 +1,87 @@
+<extend name="Public:base"/>
+<block name="admin_css">
+	<link rel="stylesheet" href="__PUBLIC__/Common/kindeditor/themes/default/default.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Common/kindeditor/plugins/code/prettify.css" />
+</block>
+<block name="admin_js">
+	<script charset="utf-8" src="__PUBLIC__/Common/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="__PUBLIC__/Common/kindeditor/lang/zh_CN.js"></script>
+	<script charset="utf-8" src="__PUBLIC__/Common/kindeditor/plugins/code/prettify.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor1 = K.create('textarea[name="content"]', {
+				cssPath : '../plugins/code/prettify.css',
+				uploadJson : '../php/upload_json.php',
+				fileManagerJson : '../php/file_manager_json.php',
+				allowFileManager : true,
+				afterCreate : function() {
+					var self = this;
+					K.ctrl(document, 13, function() {
+						self.sync();
+						K('form[name=example]')[0].submit();
+					});
+					K.ctrl(self.edit.doc, 13, function() {
+						self.sync();
+						K('form[name=example]')[0].submit();
+					});
+				}
+			});
+			prettyPrint();
+		});
+	</script>
+</block>
+<block name="star">
+	<li>
+		<a href="{:U('Index/index')}" class="icon-home">开始</a>
+	</li>
+	<li>
+		<a href="{:U('Index/system')}" class="icon-cog">系统</a>
+	</li>
+	<li class="active">
+		<a href="{:U('Index/content')}" class="icon-file-text">内容</a>
+		<ul>
+			<li class="active">
+				<a href="{:U('Index/qianyan')}">添加前沿</a>
+			</li>
+			<li>
+				<a href="{:U('Index/contentManager')}">内容管理</a>
+			</li>
+			<li>
+				<a href="#">分类设置</a>
+			</li>
+			<li>
+				<a href="#">链接管理</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="{:U('Auth/index')}" class="icon-shopping-cart">权限</a>
+	</li>
+	<li>
+		<a href="{:U('Member/index')}" class="icon-user">会员</a>
+	</li>
+	<li>
+		<a href="{:U('File/index')}" class="icon-file">文件</a>
+	</li>
+	<li>
+		<a href="#" class="icon-th-list">栏目</a>
+	</li>
+</block>
+<block name="admin">
+	<div class="admin">
+		<div class="conatiner">
+			<div class="line">
+				<form method="post" action="{:U('addQy')}" name="example">
+					<div class="xm4 xm4-move margin-top margin-bottom">
+						<input class="input" name="title" placeholder="在此输入标题"></div>
+					<div class="clearfix"></div>
+					<textarea name="content" style="width:100%;height:600px;visibility:hidden;"></textarea>
+					<br />
+					<input type="submit" value="提交内容"  class="button bg-main" />
+					<input type="reset" value="清空"  class="button bg-main" />
+					(提交快捷键: Ctrl + Enter)
+				</form>
+			</div>
+		</div>
+	</div>
+</block>
